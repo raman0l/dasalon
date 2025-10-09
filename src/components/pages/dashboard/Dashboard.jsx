@@ -46,7 +46,12 @@ function Dashboard() {
 
   useEffect(() => {
     if (data.length > 0) {
-      localStorage.setItem("performanceData", JSON.stringify(data));
+      const serializableData = data.map((item) => {
+        const { someField, anotherField } = item;
+        return { someField, anotherField };
+      });
+
+      localStorage.setItem("performanceData", JSON.stringify(serializableData));
     }
   }, [data]);
 

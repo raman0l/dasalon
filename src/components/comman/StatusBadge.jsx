@@ -2,7 +2,26 @@ import React from "react";
 import clsx from "clsx";
 
 const StatusBadge = ({ status }) => {
-  const label = status.charAt(0).toUpperCase() + status.slice(1);
+  const safeStatus = status || "unknown";
+
+  const label =
+    safeStatus.charAt(0).toUpperCase() + safeStatus.slice(1).toLowerCase();
+
+  // Define color based on status
+  let colorClass = "";
+  switch (safeStatus.toLowerCase()) {
+    case "active":
+      colorClass = "bg-green-100 text-green-700";
+      break;
+    case "expired":
+      colorClass = "bg-red-100 text-red-700";
+      break;
+    case "due":
+      colorClass = "bg-yellow-100 text-yellow-700";
+      break;
+    default:
+      colorClass = "bg-gray-200 text-gray-700";
+  }
 
   return (
     <span

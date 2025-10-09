@@ -31,10 +31,11 @@ body {
 /* global.css ya component ke CSS */
 .custom-scrollbar::-webkit-scrollbar {
   height: 8px;
+  width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #b751fb; /* blue-500 */
+  background-color: #b751fb !important; /* blue-500 */
   border-radius: 9999px;
 }
 

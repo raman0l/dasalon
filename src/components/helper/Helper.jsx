@@ -49,6 +49,20 @@ import {
   AddVisitIcon,
   AddFollowUpIcon,
   AssignPartnerIcon,
+  LastVisitSummaryIcon,
+  SubmitIcon,
+  SetupIcon,
+  ClientEngagementIcon,
+  PromoteUsageIcon,
+  OfferIcon,
+  CatalogStaffIcon,
+  ProfileIcon,
+  ManageIcon,
+  GroIcon,
+  GrowIcon,
+  OutcomeIcon,
+  PromotoIcon,
+  PlusIcon,
 } from "./Icon";
 import { BedIcon } from "lucide-react";
 
@@ -58,13 +72,13 @@ export const navItemsData = [
     id: 2,
     name: "Planner",
     icon: <CalenderIcon />,
-    path: "/saidbar",
+    path: "/",
   },
   { id: 3, name: "Insights", icon: <SearchIcon />, path: "/insights" },
-  { id: 4, name: "Partner", icon: <PatnershipIcon />, path: "/deshbord" },
-  { id: 5, name: "sales", icon: <SalessIcon />, path: "/deshbord" },
-  { id: 6, name: "Team", icon: <TeamsIcon />, path: "/deshbord" },
-  { id: 7, name: "Report", icon: <ReportIcon />, path: "/deshbord" },
+  { id: 4, name: "Partner", icon: <PatnershipIcon />, path: "/partner" },
+  { id: 5, name: "sales", icon: <SalessIcon />, path: "/" },
+  { id: 6, name: "Team", icon: <TeamsIcon />, path: "/" },
+  { id: 7, name: "Report", icon: <ReportIcon />, path: "/" },
   {
     id: 8,
     name: "Training",
@@ -334,7 +348,7 @@ export const GrowthtasksData = [
     icon: <NoPartnerIcon />,
   },
 ];
-export const insightsData = [
+export const CriticalTaskData = [
   {
     id: 1,
     img: "/assets/png/Chroma-Lounge.png",
@@ -450,9 +464,15 @@ export const insightsData = [
     action: "...",
   },
 ];
+export const ManageData = [
+  { label: "Manage: 3", color: "!text-[#F13737]" },
+  { label: "Grow: 2", color: "!text-[#F58400]" },
+  { label: "Promote: 4", color: "!text-[#5B14D1]" },
+  { label: "Overall: 2", color: "!text-[#31A553]" },
+];
 export const textsData = [
-  { label: "Critical : 6 ", color: "text-[#F13737]" },
-  { label: "Growth : 4", color: "text-[#F58400]" },
+  { label: "Critical : 6 ", color: "!text-[#F13737]" },
+  { label: "Growth : 4", color: "text-green-400" },
   { label: "Health : 8", color: "!text-[#5d14d1d7]" },
 ];
 
@@ -498,7 +518,26 @@ export const issuesData = {
     { title: "Low engagement on campaigns", days: "8 days" },
   ],
 };
-
+export const issues1Data = {
+  manage: [
+    { title: "Appointment Management", days: "2/5" },
+    { title: "Catalog Management", days: "3/5" },
+    { title: "Client Management", days: "4/5" },
+    { title: "Staff Management", days: "1/5" },
+  ],
+  growth: [
+    { title: "Client Management", days: "4/5" },
+    { title: "Staff Management", days: "1/5" },
+    { title: "Appointment Management", days: "2/5" },
+    { title: "Catalog Management", days: "3/5" },
+  ],
+  promote: [
+    { title: "Staff Management", days: "1/5" },
+    { title: "Appointment Management", days: "2/5" },
+    { title: "Catalog Management", days: "3/5" },
+    { title: "Client Management", days: "4/5" },
+  ],
+};
 export const reportsData = [
   {
     type: "Visit on",
@@ -545,8 +584,38 @@ export const stepsData = [
   },
 ];
 
-export const namesData = ["Raman", "manish", "mahesh", "ankit", "Rahul"];
-export const nameData = ["Ram", "manish", "rajesh", "ankit", "deepak"];
+export const namesData = [
+  "Sanya Desai",
+  "Tanya Sethi",
+  "Priya Nair",
+  "Meera Sharma",
+  "Ishita Bose",
+];
+export const nameData = [
+  "Neha Reddy",
+  "Neha Singh",
+  "Tanya Sethi",
+  "Sanya Desai",
+];
+export const nametcData = [
+  "Sanya Desai",
+  "Neha Singh",
+  "Kavita Menon",
+  "Ritika Verma",
+  "Meera Sharma",
+];
+export const namemrData = [
+  "Divya Malhotra",
+  "manish Vrema",
+  "Rhea Malhotra",
+  "Neha Singh",
+];
+export const namemrfeData = [
+  "Ayesha Sharma",
+  "Ishita Bose",
+  "Rhea Malhotra",
+  "Neha Singh",
+];
 
 export const reasonData = [
   "Critical Task",
@@ -557,10 +626,494 @@ export const reasonData = [
   "Others",
 ];
 export const menuItemsData = [
-  { id: 1, label: "View as partner", icon: <ViewIcon /> },
-  { id: 2, label: "View Report", icon: <ViewReportIcon /> },
-  { id: 3, label: "Add Visit", icon: <AddVisitIcon /> },
-  { id: 4, label: "Add Follow Up", icon: <AddFollowUpIcon /> },
-  { id: 5, label: "Add Visit Report", icon: <AddVisitIcon /> },
-  { id: 6, label: "Assign Partner", icon: <AssignPartnerIcon /> },
+  { id: 1, label: "View as partner", icon: <ViewIcon />, path: "/new-visit" },
+  {
+    id: 2,
+    label: "View Report",
+    icon: <ViewReportIcon />,
+    path: "/insights/NewVisit",
+  },
+  { id: 3, label: "Add Visit", icon: <AddVisitIcon />, path: "/new-visit" },
+  {
+    id: 4,
+    label: "Add Follow Up",
+    icon: <AddFollowUpIcon />,
+    path: "/new-visit",
+  },
+  {
+    id: 5,
+    label: "Add Visit Report",
+    icon: <AddVisitIcon />,
+    path: "/NewVisit",
+  },
+  {
+    id: 6,
+    label: "Assign Partner",
+    icon: <AssignPartnerIcon />,
+    path: "/",
+  },
+];
+export const menuItemstab2Data = [
+  {
+    id: 1,
+    label: "View Report",
+    icon: <ViewReportIcon />,
+    path: "/insights/NewVisit",
+  },
+  { id: 2, label: "Add Visit", icon: <AddVisitIcon />, path: "/new-visit" },
+  {
+    id: 3,
+    label: "Add Follow Up",
+    icon: <AddFollowUpIcon />,
+    path: "/new-visit",
+  },
+  {
+    id: 4,
+    label: "Add Visit Report",
+    icon: <PlusIcon />,
+    path: "/NewVisit",
+  },
+  {
+    id: 5,
+    label: "Assign Partner",
+    icon: <AssignPartnerIcon />,
+    path: "/",
+  },
+];
+export const fromsummitData = [
+  { icon: <LastVisitSummaryIcon />, label: "Last Visit Summary" },
+  { icon: <CatalogStaffIcon />, label: "Catalog & Staff" },
+  { icon: <OfferIcon />, label: "Offers" },
+  { icon: <PromoteUsageIcon />, label: "Promote Usage" },
+  { icon: <ClientEngagementIcon />, label: "Client Engagement" },
+  { icon: <SetupIcon />, label: "Set up" },
+  { icon: <SubmitIcon />, label: "Submit" },
+];
+export const ProfileManageData = [
+  { icon: <ProfileIcon />, label: "Profile" },
+  { icon: <ManageIcon />, label: "Manage" },
+  { icon: <GrowIcon />, label: "Grow" },
+  { icon: <PromotoIcon />, label: "Promote" },
+  { icon: <OutcomeIcon />, label: "Outcome" },
+];
+
+export const data = [
+  {
+    category: "Venue Setup",
+    score: "9/10",
+    remarks:
+      "All complete, missing cancellation policy. Could add more amenities.",
+  },
+  {
+    category: "Catalog & Staff",
+    score: "8/10",
+    remarks:
+      "Services added, 1 inactive staff still listed. Staff profiles need updating.",
+  },
+  {
+    category: "Offers",
+    score: "6/10",
+    remarks:
+      "Gift card & promo active, no membership setup yet. Explore loyalty programs.",
+  },
+  {
+    category: "Promote Usage",
+    score: "5/10",
+    remarks:
+      "Not yet using Get Featured or Campaign Msg. Easy Share links created but low clicks. ",
+  },
+];
+export const Metricdata = [
+  {
+    Metric: "Services (Count)",
+    last: "50 services",
+    Current: "40 services",
+  },
+  {
+    Metric: "Package (Count)",
+    last: "10 Packages",
+    Current: "14 Packages",
+  },
+  {
+    Metric: "Book-a-Look (Count)",
+    last: "5 looks",
+    Current: "8 looks",
+  },
+  {
+    Metric: "Product (Count)",
+    last: "5 looks",
+    Current: "22 Products",
+  },
+  {
+    Metric: "Staff (Count)",
+    last: "5 staff",
+    Current: "3 staff",
+  },
+];
+export const offerdata = [
+  {
+    Metric: "Voucher (Count)",
+    last: "100 vouchers",
+    Current: "90 vouchers",
+  },
+  {
+    Metric: "Membership (Count)",
+    last: "2 Plans",
+    Current: "4 Plans",
+  },
+  {
+    Metric: "Promo code (Count)",
+    last: "50 Codes",
+    Current: "70 Codes",
+  },
+  {
+    Metric: "Gift Card (Count)",
+    last: "10 Cards",
+    Current: "12 Cards",
+  },
+];
+
+export const PromoteUsagedata = [
+  {
+    Metric: "Get Featured (No. of Days)",
+    last: "7 days",
+    Current: "8 days",
+  },
+  {
+    Metric: "Easy Share (No. of Links)",
+    last: "7 days",
+    Current: "6 days",
+  },
+  {
+    Metric: "Easy Share (Clicks)",
+    last: "500 clicks",
+    Current: "510 clicks",
+  },
+  {
+    Metric: "Creative St. (No. of Temp.)",
+    last: "10 templates",
+    Current: "12 templates",
+  },
+  {
+    Metric: "Ad Manager (No. of Days)",
+    last: "10 templates",
+    Current: "9 templates",
+  },
+  {
+    Metric: "Campaign Msg Sent (Count)",
+    last: "1000 msgs",
+    Current: "1002 msgs",
+  },
+];
+
+export const ClientEngagementdata = [
+  {
+    Metric: "Appointment  Received ",
+    last: "150",
+    Current: "140",
+  },
+  {
+    Metric: "Appointment  Complete ",
+    last: "140",
+    Current: "146",
+  },
+  {
+    Metric: "Repeat Clients Visit ",
+    last: "80",
+    Current: "510",
+  },
+  {
+    Metric: "New Client Add ",
+    last: "60",
+    Current: "62",
+  },
+  {
+    Metric: "Total Client",
+    last: "500",
+    Current: "400",
+  },
+  {
+    Metric: "Review Received ",
+    last: "20",
+    Current: "30",
+  },
+  {
+    Metric: "Review Received ",
+    last: "30",
+    Current: "40",
+  },
+  {
+    Metric: "Sales",
+    last: "₹50,000",
+    Current: "₹45,000",
+  },
+];
+export const Setupdata = [
+  {
+    Metric: "Business Name and Logo",
+    last: "Yes",
+    Current: "Yes",
+  },
+  {
+    Metric: "Complete Add. and Location Pin Set",
+    last: "Yes",
+    Current: "No",
+  },
+  {
+    Metric: "About (Description)",
+    last: "Yes",
+    Current: "Yes",
+  },
+  {
+    Metric: "Off Peak Hours",
+    last: "No",
+    Current: "Yes",
+  },
+  {
+    Metric: "Contact Number verified",
+    last: "Yes",
+    Current: "Yes",
+  },
+  {
+    Metric: "Social Media Links",
+    last: "Yes",
+    Current: "No",
+  },
+  {
+    Metric: "Bank Account",
+    last: "No",
+    Current: "Yes",
+  },
+  {
+    Metric: "Compliance - Staff  'Curr. Employed'",
+    last: "Yes",
+    Current: "Yes",
+  },
+];
+export const timesData = [
+  "01:00 PM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
+  "05:00 PM",
+  "06:00 PM",
+  "07:00 PM",
+  "08:00 PM",
+  "09:00 PM",
+  "10:00 PM",
+  "12:00 PM",
+  "01:00 AM",
+  "02:00 AM",
+  "03:00 AM",
+  "04:00 AM",
+  "05:00 AM",
+  "06:00 AM",
+  "07:00 AM",
+  "08:00 AM",
+  "09:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 AM",
+];
+
+export const salonSizesData = [
+  { id: "size-1", value: "0-3", label: "0 - 3 seats" },
+  { id: "size-2", value: "4-7", label: "4 - 7 seats" },
+  { id: "size-3", value: "8-12", label: "8 - 12 seats" },
+  { id: "size-4", value: "16+", label: "16 & above" },
+];
+
+export const ratingLabelsData = [
+  "Rate the following from 1 - 5 ",
+  "1 - not needed",
+  "2 - not sure",
+  "3 - needed but not immediately",
+  "4 - needed",
+  "5 - strongly needed",
+];
+
+export const GrowthTaskData = [
+  {
+    id: 1,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Chroma Lounge",
+    address: "281 Madison Street,SoHo Dis...",
+    health: 30,
+    issue: [{ val: 2 }, { val: 3 }],
+    saleid: "₹12,500",
+    Appt: "5",
+    Catalog: "20/3",
+    Promocode: "0",
+    Getfeat: "0",
+    EasyShare: "10/2",
+    CreativeStudio: "0",
+    Admanager: "0",
+    CompMsg: "0",
+    NextVisit: "July 14,2025",
+    tcname: "Ayesha Sharma",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+  },
+  {
+    id: 2,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Maison Glow",
+    address: "Luxe Layers Lounge, 1285",
+    health: 12,
+    issue: [{ val: 3 }, { val: 2 }],
+    saleid: "₹15,000",
+    Appt: "10",
+    Catalog: "20/3",
+    Promocode: "2",
+    Getfeat: "2",
+    EasyShare: "10/4",
+    CreativeStudio: "2",
+    Admanager: "3",
+    CompMsg: "20",
+    NextVisit: "Aug 10 ,2025",
+    tcname: "Meera Sharma",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+  },
+  {
+    id: 3,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "The Gilded Comb",
+    address: "The Styling Suite, 45 Ke....",
+    health: 25,
+    issue: [{ val: 1 }, { val: 3 }],
+    saleid: "₹18,750",
+    Appt: "6",
+    Catalog: "20/3",
+    Promocode: "5",
+    Getfeat: "4",
+    EasyShare: "20/3",
+    CreativeStudio: "4",
+    Admanager: "5",
+    CompMsg: "15",
+    NextVisit: "July 14,2025",
+    tcname: "Ritika Varma",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+  },
+  {
+    id: 4,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Luxe Layers",
+    address: "Blush & Beam Salon, Unit 5...",
+    health: 16,
+    issue: [{ val: 3 }, { val: 4 }],
+    saleid: "₹20,000",
+    Appt: "8",
+    Catalog: "20/3",
+    Promocode: "5",
+    Getfeat: "5",
+    EasyShare: "12/4",
+    CreativeStudio: "6",
+    Admanager: "8",
+    CompMsg: "12",
+    NextVisit: "sep 11,2025",
+    tcname: "Tanya Sethi",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+  },
+  {
+    id: 5,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Opal & Shine",
+    address: "Radiance Hair Studio, 3rd f..",
+    health: 35,
+    issue: [{ val: 4 }, { val: 3 }],
+    saleid: "₹23,400",
+    Appt: "12",
+    Catalog: "20/3",
+    Promocode: "5",
+    Getfeat: "5",
+    EasyShare: "12/4",
+    CreativeStudio: "6",
+    Admanager: "8",
+    CompMsg: "12",
+    NextVisit: "July 10,2025",
+    tcname: "Kavita Menon",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+  },
+];
+
+export const RegisteredPartnerData = [
+  {
+    id: 1,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Chroma Lounge",
+    city: "MG Road, Banglore",
+    health: 45,
+    issue: [{ val: 2 }, { val: 3 }],
+    appt: "150",
+    sales: "80",
+    tcname: "Amitabh Bachan",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+    lastVisit: "July 14,2025",
+    nextVisit: "July 5,2025",
+  },
+  {
+    id: 2,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Maison Glow",
+    city: "Brigade Road, Bangalore",
+    health: 40,
+    issue: [{ val: 2 }, { val: 3 }],
+    appt: "50",
+    sales: "80",
+    tcname: "-",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+    lastVisit: "July 14,2025",
+    nextVisit: "-",
+  },
+  {
+    id: 3,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "The Gilded Comb",
+    city: "Cloud City",
+    health: 35,
+    issue: [{ val: 2 }, { val: 3 }],
+    appt: "₹120",
+    sales: "120",
+    tcname: "Ayesha Sharma",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+    lastVisit: "Jun 01,2025",
+    nextVisit: "Apr 10,2025",
+  },
+  {
+    id: 4,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Luxe Layers",
+    city: "Treasure Town",
+    health: 42,
+    issue: [{ val: 2 }, { val: 3 }],
+    appt: "₹110",
+    sales: "125",
+    tcname: "Amitabh Bachan",
+    rmname: "-",
+    fename: "Vijay Patel",
+    lastVisit: "July 14,2025",
+    nextVisit: "July 25,2025",
+  },
+  {
+    id: 5,
+    img: "/assets/png/Chroma-Lounge.png",
+    name: "Opal & Shine",
+    city: "Cloud City",
+    health: 40,
+    issue: [{ val: 2 }, { val: 3 }],
+    appt: "₹130",
+    sales: "60",
+    tcname: "Suresh Mehta",
+    rmname: "Rhea Malhotra",
+    fename: "Neha Singh",
+    lastVisit: "Apr 14,2025",
+    nextVisit: "July 5,2025",
+  },
 ];

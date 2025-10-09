@@ -4,7 +4,12 @@ import Link from "next/link";
 import { MenuIcon } from "../helper/Icon";
 import Image from "next/image";
 import { navItemsData } from "../helper/Helper";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
 export default function Navbar() {
   const [active, setActive] = useState(1);
@@ -42,8 +47,8 @@ export default function Navbar() {
               </div>
 
               <div className="border-[#DCE0E5] border-1 w-[70%] justify-center flex items-center mx-auto my-3"></div>
-              {navItemsData.map((item) => {
-                return (
+              <TooltipProvider>
+                {navItemsData.map((item) => (
                   <Tooltip key={item.id}>
                     <TooltipTrigger asChild>
                       <Link
@@ -66,8 +71,8 @@ export default function Navbar() {
                       {item.name}
                     </TooltipContent>
                   </Tooltip>
-                );
-              })}
+                ))}
+              </TooltipProvider>
 
               <span className="absolute left-[70px] top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition bg-gray-800 text-white text-sm px-2 py-1 rounded">
                 Notification
