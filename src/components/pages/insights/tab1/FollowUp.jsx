@@ -25,11 +25,16 @@ import {
 import { Button } from "@/components/ui/button";
 import Pragraph from "@/components/comman/Pragraph";
 import {
+  AddFollowUpIcon,
+  AddVisitIcon,
+  AssignPartnerIcon,
   CalendarIcon,
   CallIcon,
   LoctionIcon,
   MenuIcon,
   SelectdragIcon,
+  ViewIcon,
+  ViewReportIcon,
 } from "@/components/helper/Icon";
 import { ClockIcon, MoreVerticalIcon } from "lucide-react";
 import {
@@ -44,6 +49,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { SelectIcon } from "@radix-ui/react-select";
 import { Router } from "next/router";
 import { useRouter } from "next/navigation";
+import AddNewVisitReport from "../tab2/AddNewVisitReport";
 
 // Helper Function
 const getDisplayName = (value, data) => {
@@ -63,7 +69,12 @@ function FollowUp() {
 
   const [selectedTime, setSelectedTime] = useState("");
   const [date, setDate] = React.useState(new Date());
+  const [activeItem, setActiveItem] = useState(null);
 
+  const handleSelect = (e, id) => {
+    e.preventDefault();
+    setActiveItem(id);
+  };
   return (
     <div>
       <Sheet open={open} onOpenChange={setOpen}>
@@ -114,26 +125,84 @@ function FollowUp() {
                     />
                   </div>
                 </div>
-                <DropdownMenu className={"p-0"}>
+                <DropdownMenu className="p-0">
                   <DropdownMenuTrigger asChild>
                     <Button className="flex items-center gap-2 cursor-pointer !p-0 !bg-transparent !shadow-none text-[#808188]">
                       <MoreVerticalIcon />
                     </Button>
                   </DropdownMenuTrigger>
 
-                  <DropdownMenuContent className="w-50 bg-white border-1 border-[#808188] p-0 mr-10">
-                    {menuItemsData.map((item) => {
-                      return (
-                        <DropdownMenuItem
-                          key={item.id}
-                          className="flex items-center gap-2 hover:!bg-[#eaccfe] duration-300 ease-in-out"
-                          onClick={() => router.push(item.path)}
-                        >
-                          {item.icon}
-                          <span>{item.label}</span>
-                        </DropdownMenuItem>
-                      );
-                    })}
+                  <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 1)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 1
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:!bg-[#eaccfe]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 ">
+                        <ViewIcon />
+                        View as partner
+                      </div>
+                      <AddNewVisitReport />
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 2)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 2
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:bg-[#eaccfe]"
+                      }`}
+                    >
+                      <ViewReportIcon />
+                      View Report
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 3)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 3
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:bg-[#eaccfe]"
+                      }`}
+                    >
+                      <AddVisitIcon />
+                      Add Visit
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 4)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 4
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:bg-[#eaccfe]"
+                      }`}
+                    >
+                      <AddFollowUpIcon />
+                      Add Follow Up
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 5)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 5
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:bg-[#eaccfe]"
+                      }`}
+                    >
+                      <AddVisitIcon />
+                      Add Visit Report
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      onSelect={(e) => handleSelect(e, 6)}
+                      className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        activeItem === 6
+                          ? "bg-[#eaccfe]"
+                          : "bg-white hover:bg-[#eaccfe]"
+                      }`}
+                    >
+                      <AssignPartnerIcon />
+                      Assign Partner
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>

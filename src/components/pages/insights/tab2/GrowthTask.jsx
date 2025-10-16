@@ -25,9 +25,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MoreHorizontal, Search } from "lucide-react";
+import { MoreHorizontal, MoreVerticalIcon, Search } from "lucide-react";
 
-import { FilterIcon } from "@/components/helper/Icon";
+import {
+  AddFollowUpIcon,
+  AddVisitIcon,
+  AssignPartnerIcon,
+  FilterIcon,
+  ViewIcon,
+  ViewReportIcon,
+} from "@/components/helper/Icon";
 import {
   GrowthTaskData,
   menuItemsData,
@@ -35,6 +42,7 @@ import {
 } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
 import Registered from "./Registered";
+import AddNewVisitReport from "./AddNewVisitReport";
 
 export default function GrowthTask() {
   const [statusFilter, setStatusFilter] = useState(undefined);
@@ -55,6 +63,12 @@ export default function GrowthTask() {
     return matchesStatus && matchesSearch;
   });
 
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleSelect = (e, id) => {
+    e.preventDefault();
+    setActiveItem(id);
+  };
   return (
     <div className="w-full lg:px-6 md:px-5 px-4">
       {/* Filter Section */}
@@ -219,29 +233,84 @@ export default function GrowthTask() {
                   <TableCell className="py-2 px-3">{row.rmname}</TableCell>
                   <TableCell className="py-2 px-3">{row.fename}</TableCell>
                   <TableCell className="py-2 px-3 flex justify-center">
-                    <DropdownMenu>
+                    <DropdownMenu className="p-0">
                       <DropdownMenuTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          className="p-0 !bg-transparent !shadow-none text-black focus:outline-none focus:ring-0 active:outline-none"
-                        >
-                          <MoreHorizontal />
+                        <Button className="flex items-center gap-2 cursor-pointer !p-0 !bg-transparent !shadow-none text-[#808188]">
+                          <MoreVerticalIcon />
                         </Button>
                       </DropdownMenuTrigger>
 
-                      <DropdownMenuContent className="w-40 bg-white border border-[#808188] !p-0 mr-10">
-                        {menuItemstab2Data.map((item) => (
-                          <DropdownMenuItem
-                            onClick={() =>
-                              navigator.clipboard.writeText(row.id)
-                            }
-                            key={item.id}
-                            className="flex items-center gap-2 hover:!bg-[#F1DCFF] duration-300 cursor-pointer"
-                          >
-                            {item.icon}
-                            <span>{item.label}</span>
-                          </DropdownMenuItem>
-                        ))}
+                      <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 1)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 1
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:!bg-[#eaccfe]"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 ">
+                            <ViewIcon />
+                            View as partner
+                          </div>
+                          <AddNewVisitReport />
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 2)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 2
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
+                          }`}
+                        >
+                          <ViewReportIcon />
+                          View Report
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 3)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 3
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
+                          }`}
+                        >
+                          <AddVisitIcon />
+                          Add Visit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 4)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 4
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
+                          }`}
+                        >
+                          <AddFollowUpIcon />
+                          Add Follow Up
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 5)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 5
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
+                          }`}
+                        >
+                          <AddVisitIcon />
+                          Add Visit Report
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onSelect={(e) => handleSelect(e, 6)}
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            activeItem === 6
+                              ? "bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
+                          }`}
+                        >
+                          <AssignPartnerIcon />
+                          Assign Partner
+                        </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

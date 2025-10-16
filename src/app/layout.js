@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className="flex">
-          <Navbar /> {/* client component */}
-          <main className="flex-1 md:pl-13 lg:pl-13 pl-7 overflow-x-hidden">
+          <Navbar />
+          <main className="flex-1 md:pl-13 lg:pl-13 pl-7 overflow-x-hidden w-full">
             {children}
           </main>
         </div>

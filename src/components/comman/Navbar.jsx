@@ -17,7 +17,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-[#F2F2F2] max-w-14 flex flex-col gap-10 justify-between h-screen scrollbar-none fixed overflow-auto z-20">
+    <div className="bg-[#F2F2F2] max-w-14 flex flex-col gap-10 justify-between overflow-x-hidden h-screen scrollbar-none fixed overflow-y-auto z-20">
       <div>
         <div>
           <div className="hidden md:flex gap-6">

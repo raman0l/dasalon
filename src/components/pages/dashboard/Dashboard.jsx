@@ -57,7 +57,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="lg:px-6 md:px-5 px-4  mx-auto max-w-[1393px]">
+      <div className="lg:px-6 md:px-5 px-4">
         {/* Top Section */}
         <div>
           <div className="flex justify-between gap-4 py-5 items-center border-b-2 border-[#E4E7EB] ">
@@ -147,7 +147,7 @@ function Dashboard() {
         </div>
         <div>
           <div className="flex gap-2 mt-6 justify-between max-[920px]:flex-wrap">
-            <div className="bg-white rounded-[8px] lg:p-6 md:p-4 p-3  border-2 border-[#E4E7EB] min-[920px]:max-w-[737px] w-full">
+            <div className="bg-white rounded-[8px] lg:p-6 md:p-4 p-3  border-2 border-[#E4E7EB] w-full">
               <Heading
                 className={
                   "lg:!text-xl md:!text-lg !text-base  font-semibold  leading-[120%] tracking-[-0.4px] !text-[#030712] lg:pb-6 md:pb-5 pb-4"
@@ -206,7 +206,7 @@ function Dashboard() {
                 ))}
               </div>
             </div>
-            <div className="bg-white rounded-xl lg:p-6 md:p-4 p-3 border-2 border-[#E4E7EB]  w-full min-[920px]:max-w-[575px]">
+            <div className="bg-white rounded-xl lg:p-6 md:p-4 p-3 border-2 border-[#E4E7EB]  w-full">
               <div className="flex justify-between  mb-6">
                 <div className="flex  flex-col gap-1">
                   <Heading
@@ -270,7 +270,7 @@ function Dashboard() {
                       />
 
                       {/* Progress bar */}
-                      <div className="flex-1 min-[920px]:max-w-[360px] w-full items-center">
+                      <div className="flex-1  w-full items-center">
                         <Progress value={item.value} className={"h-4"} />
                       </div>
                     </div>
@@ -290,8 +290,8 @@ function Dashboard() {
           </div>
         </div>
         <div className="flex w-full gap-2 max-[900px]:flex-wrap justify-between mt-6">
-          <div className="flex flex-col gap-6 min-[900px]:max-w-[737px] w-full">
-            <div className="border-[#E4E7EB] border-2 py-6   rounded-lg min-[900px]:!max-w-[737px]">
+          <div className="flex flex-col gap-6 w-full">
+            <div className="border-[#E4E7EB] border-2 py-6 rounded-lg">
               <div className="flex gap-2 justify-between mb-4 lg:px-6 md:px-4 p-3 max-[440px]:flex-col">
                 <Heading
                   className="lg:!text-xl md:!text-lg !text-base font-semibold leading-[120%] tracking-[-0.4px] !text-[#030712]"
@@ -365,7 +365,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="w-full bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3 min-[900px]:max-w-[737px]">
+            <div className="w-full bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <Heading
@@ -408,7 +408,7 @@ function Dashboard() {
               </div>
             </div>
           </div>
-          <div className=" bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3 min-[900px]:max-w-[575px] w-full">
+          <div className=" bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3 w-full">
             <div className="flex items-center justify-between mb-6">
               <Heading
                 className={
@@ -421,7 +421,7 @@ function Dashboard() {
               </Button>
             </div>
 
-            <div className="grid max-[900px]:grid-cols-3 max-[710px]:grid-cols-2 max-[490px]:grid-cols-1 lg:grid-cols-2 lg:gap-5 md:gap-4 gap-3 min-[900px]:max-w-[737px]">
+            <div className="grid max-[900px]:grid-cols-3 max-[710px]:grid-cols-2 max-[490px]:grid-cols-1 lg:grid-cols-2 lg:gap-5 md:gap-4 gap-3 ">
               {GrowthtasksData.map((task) => (
                 <div
                   key={task.id}
