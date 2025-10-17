@@ -42,6 +42,7 @@ import {
   pastPerformance,
 } from "@/components/helper/Helper";
 import AddTargetsDialog from "./AddTargets";
+import AddMember from "@/components/comman/AddMember";
 
 export default function MemberDetail() {
   const [open, setOpen] = useState(false);
@@ -50,7 +51,16 @@ export default function MemberDetail() {
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
+  const [activeItem, setActiveItem] = useState(null); // track active item
+  const [openAddMember, setOpenAddMember] = useState(false); // for AddMember
 
+  const handleSelect = (id, e) => {
+    e.preventDefault();
+    setActiveItem(id);
+
+    // open AddMember if Edit clicked
+    if (id === 2) setOpenAddMember(true);
+  };
   return (
     <div>
       <Sheet open={open} onOpenChange={setOpen}>
@@ -68,46 +78,46 @@ export default function MemberDetail() {
           <SheetHeader className={"border-b border-[#E4E7EB]"}>
             <SheetTitle className={"flex items-center gap-4"}>
               <Pragraph className={"!text-[#030712]"} title={"Member detail"} />
-              <DropdownMenu className="p-0">
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button className="flex items-center gap-2 cursor-pointer !p-0 !bg-transparent !shadow-none text-[#808188]">
+                  <Button className="!p-0 !bg-transparent !shadow-none text-[#808188]">
                     <MoreVerticalIcon />
                   </Button>
                 </DropdownMenuTrigger>
 
-                <DropdownMenuContent className="w-10 bg-white border border-[#E4E7EB] p-0 mr-10">
+                <DropdownMenuContent className="w-36 bg-white border border-[#E4E7EB] p-0 mr-10 rounded-md">
                   <DropdownMenuItem
-                    className="
-    group flex items-center gap-2 
-    !text-xs font-normal leading-[166%] tracking-[-0.24px] 
-    !text-[#030712] hover:!bg-[#F1DCFF] hover:!text-[#B751FB]
-    transition-colors duration-200
-  "
+                    onSelect={(e) => handleSelect(1, e)}
+                    className={`flex items-center gap-2 px-4 py-2 text-xs font-semibold cursor-pointer ${
+                      activeItem === 1
+                        ? "bg-[#b751fb4c] text-[#B751FB]"
+                        : "bg-white hover:bg-[#b751fb4c]"
+                    }`}
                   >
-                    <ViewsIcon className="text-current group-hover:text-[#B751FB]" />
-                    View
+                    <ViewsIcon className="text-current" /> View
                   </DropdownMenuItem>
+
                   <DropdownMenuItem
-                    className="
-    group flex items-center gap-2 
-    !text-xs font-normal leading-[166%] tracking-[-0.24px] 
-    !text-[#030712] hover:!bg-[#F1DCFF] hover:!text-[#B751FB]
-    transition-colors duration-200
-  "
+                    onSelect={(e) => handleSelect(2, e)}
+                    className={`flex items-center gap-2 px-4 py-2 text-xs font-semibold cursor-pointer ${
+                      activeItem === 2
+                        ? "bg-[#b751fb4c] text-[#B751FB]"
+                        : "bg-white hover:bg-[#b751fb4c]"
+                    }`}
                   >
-                    <EditIcon className="text-current group-hover:text-[#B751FB]" />
-                    Edit
+                    <EditIcon className="text-current" /> Edit
+                    <AddMember />
                   </DropdownMenuItem>
+
                   <DropdownMenuItem
-                    className="
-    group flex items-center gap-2 
-    !text-xs font-normal leading-[166%] tracking-[-0.24px] 
-    !text-[#030712] hover:!bg-[#F1DCFF] hover:!text-[#B751FB]
-    transition-colors duration-200
-  "
+                    onSelect={(e) => handleSelect(3, e)}
+                    className={`flex items-center gap-2 px-4 py-2 text-black text-xs font-semibold cursor-pointer ${
+                      activeItem === 3
+                        ? "bg-[#b751fb4c] text-[#B751FB]"
+                        : "bg-white hover:bg-[#b751fb4c]"
+                    }`}
                   >
-                    <DisableIcon className="text-current group-hover:text-[#B751FB]" />
-                    Enable / Disable
+                    <DisableIcon className="text-current" /> Enable/Disable
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

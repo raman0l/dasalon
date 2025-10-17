@@ -10,17 +10,14 @@ const StatusBadge = ({ status }) => {
   // Define color based on status
   let colorClass = "";
   switch (safeStatus.toLowerCase()) {
-    case "active":
+    case "Completed":
       colorClass = "bg-green-100 text-green-700";
       break;
-    case "expired":
-      colorClass = "bg-red-100 text-red-700";
+    case "Expired":
+      colorClass = "bg-[#FF888857] text-red-700";
       break;
-    case "due":
+    case "Planned":
       colorClass = "bg-yellow-100 text-yellow-700";
-      break;
-    default:
-      colorClass = "bg-gray-200 text-gray-700";
   }
 
   return (
@@ -29,19 +26,19 @@ const StatusBadge = ({ status }) => {
         "inline-flex items-center rounded-full px-2 text-xs font-medium",
         {
           "bg-[#E3F7E9] text-[#030712] border border-[rgba(49,165,83,1)]":
-            status === "Active",
-          "bg-[#EDEDED] text-[#030712] border border-[#ABABAB]":
+            status === "Completed",
+          "bg-[#FF888857] text-[#030712] border border-[#e90c0c]":
             status === "Expired",
           "bg-[#FFEFDB] text-[#030712] border border-[#FFAB47]":
-            status === "Due",
+            status === "Planned",
         }
       )}
     >
       <span
         className={clsx("h-1.5 w-1.5 rounded-full mr-1", {
-          "bg-[#7ACD92]": status === "Active",
-          "bg-[#CCC]": status === "Expired",
-          "bg-[#FFAB47]": status === "Due",
+          "bg-[#7ACD92]": status === "Completed",
+          "bg-[#ee0a0aea]": status === "Expired",
+          "bg-[#FFAB47]": status === "Planned",
         })}
       />
       {label}

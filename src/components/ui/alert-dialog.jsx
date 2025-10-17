@@ -51,7 +51,7 @@ function AlertDialogContent({ className, children, ...props }) {
         {/* ✅ Close X Button */}
         <AlertDialogPrimitive.Cancel asChild>
           <button
-            className="absolute right-4 top-4 rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition"
+            className="absolute right-4 top-5 rounded-full p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition"
             aria-label="Close"
           >
             <X className="h-4 w-4" />

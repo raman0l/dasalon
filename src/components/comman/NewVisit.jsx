@@ -44,7 +44,7 @@ import {
 import { ClockIcon, MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import AddNewVisitReport from "../tab2/AddNewVisitReport";
+import AddNewVisitReport from "./AddNewVisitReport";
 
 function NewVisit() {
   const [selectedDate, setSelectedDate] = useState(null);

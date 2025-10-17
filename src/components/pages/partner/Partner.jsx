@@ -12,7 +12,7 @@ import {
   ViewIcon,
   ViewReportIcon,
 } from "@/components/helper/Icon";
-import AddNewPartnerSheet from "./AddNewPartner";
+import AddNewPartnerSheet from "../../comman/AddNewPartner";
 import Pragraph from "@/components/comman/Pragraph";
 import { MoreHorizontal, MoreVerticalIcon, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -39,7 +39,7 @@ import {
   RegisteredPartnerData,
 } from "@/components/helper/Helper";
 import Registered from "../insights/tab1/Registered";
-import AddNewVisitReport from "../insights/tab2/AddNewVisitReport";
+import AddNewVisitReport from "../../comman/AddNewVisitReport";
 
 function Partner() {
   const [activeTab, setActiveTab] = useState("tab1");

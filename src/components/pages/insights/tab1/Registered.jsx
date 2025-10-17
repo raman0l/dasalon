@@ -42,15 +42,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { ClockIcon, MoreVerticalIcon } from "lucide-react";
+import { MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import VisitReport from "../tab1/VisitReport";
+import React, { useState } from "react";
+import VisitReport from "../../../comman/VisitReport";
 import Heading from "@/components/comman/Heading";
 
-import NewVisit from "../tab1/NewVisit";
-import FollowUp from "../tab1/FollowUp";
-import AddNewVisitReport from "../tab2/AddNewVisitReport";
+import FollowUp from "../../../comman/FollowUp";
+import AddNewVisitReport from "../../../comman/AddNewVisitReport";
+import NewVisit from "@/components/comman/NewVisit";
 
 function Registered() {
   const getDisplayName = (value, data) =>

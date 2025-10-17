@@ -1,10 +1,10 @@
-import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import Report from "@/components/pages/Report/Report";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <AddNewVisitReport />
+      <Report />
     </div>
   );
 }

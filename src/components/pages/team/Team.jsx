@@ -8,12 +8,10 @@ import {
   CardUiIcon,
   GenderIcon,
   GmailIcon,
-  GrowthIcon,
   MenuTeamIcon,
   PerformanceIcon,
   PhoneIcon,
   SalonIcon,
-  TeamIcon,
   TeamMemberIcon,
   TeamsIcon,
 } from "@/components/helper/Icon";
@@ -22,17 +20,41 @@ import { MemoryStick, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   fmnmanberData,
+  fmTeamData,
+  OverallTeamData,
   rmnmanberData,
+  rmTeamData,
   tcnmanberData,
+  tcTeamData,
 } from "@/components/helper/Helper";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import AddMember from "../../comman/AddMember";
-import MemberDetail from "./MemberDetail";
+import MemberDetail from "../../comman/MemberDetail";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  LabelList,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { Tooltip } from "@/components/ui/tooltip";
+import { WeightIcon } from "lucide-react";
 
 export function Team() {
   const [activeTab, setActiveTab] = useState("members");
   const [open, setOpen] = useState(false);
+  const [value, setValue] = React.useState("last7");
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -105,6 +127,16 @@ export function Team() {
                       <AddMember />
                     </Button>
                   </div>
+                )}
+                {activeTab === "performance" && (
+                  <Button
+                    className="!bg-[#B751FB] hover:bg-[#B751FB] cursor-pointer hoover:shadow !text-sm font-semibold leading-[142%] tracking-[-0.28px] py-1 flex items-center gap-1 !rounded-md p-2 text-white"
+                    open={open}
+                    onClose={setOpen}
+                  >
+                    <span className="text-xl text-white">+ </span>Add Member
+                    <AddMember />
+                  </Button>
                 )}
               </div>
             </div>
@@ -247,6 +279,233 @@ export function Team() {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+        {activeTab === "performance" && (
+          <div className="w-full px-4 md:px-5 lg:px-6">
+            <div className="flex  max-[650px]:!flex-col justify-between min-[650px]:items-center gap-4 pt-4 md:pt-5 lg:pt-6">
+              <Heading
+                className="lg:!text-lg md:!text-base !text-sm text-[#030712] font-semibold traking-[-2%]"
+                title={"Overall Team Performance (Last Month)"}
+              />
+
+              <Select value={value} onValueChange={setValue}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Select date range" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="last7">Last 7 Days</SelectItem>
+                  <SelectItem value="last30">Last 30 Days</SelectItem>
+                  <SelectItem value="lastMonth">Last Month</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-4 md:gap-3 gap-2 pt-6 ">
+                {OverallTeamData.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-lg border-[#E4E7EB] border-2 flex flex-col lg:gap-5 md:gap-4 gap-3 cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="p-[6px] rounded-[6px] bg-[#F0F2F4]">
+                        {stat.icon}
+                      </div>
+                      <Pragraph
+                        title={stat.title}
+                        className="font-semibold leading-[150%] tracking-[-0.32px] !text-[#030712]"
+                      />
+                    </div>
+                    <div>
+                      <div className="flex gap-[10px] items-baseline">
+                        <Heading
+                          className="lg:!text-[40px] md:!text-4xl !text-2xl font-semibold leading-[120%] tracking-[-0.8px] !text-[#1D212C]"
+                          title={stat.value}
+                        />
+                        <div className="flex gap-1 items-center">
+                          <Pragraph
+                            className="lg:!text-sm !text-xs font-medium leading-[142%] tracking-[-0.28px] !text-[#808188]"
+                            title={stat.text}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-4 pb-10">
+                <div className="flex gap-6 lg:flex-row flex-col">
+                  <Card className="w-full !border-[#E4E7EB] shadow-none">
+                    <CardHeader>
+                      <CardTitle>
+                        TC Team's Onboarding Achievement % (Last Month)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="h-64 pl-0">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={tcTeamData}>
+                          <CartesianGrid
+                            vertical={false}
+                            stroke="#C4C4C4"
+                            strokeDasharray="3 5"
+                          />
+
+                          <XAxis
+                            dataKey="name"
+                            tick={{
+                              fontSize: 12,
+                              fill: "#000000",
+                              fontWeight: 500,
+                            }}
+                            axisLine={false}
+                            tickLine={false}
+                          />
+                          <YAxis
+                            tick={{
+                              fontSize: 12,
+                              fill: "#000000",
+                              fontWeight: 500,
+                            }}
+                            ticks={[0, 20, 40, 60, 80, 100]}
+                            tickFormatter={(value) => `${value}%`}
+                            axisLine={false}
+                            tickLine={false}
+                          />
+                          <Tooltip formatter={(value) => `${value}%`} />
+                          <Bar
+                            dataKey="value"
+                            fill="#FFF6EB"
+                            radius={[4, 4, 0, 0]}
+                            barSize={24}
+                          >
+                            {/* Label shows value on top */}
+                            <LabelList
+                              dataKey="value"
+                              formatter={(value) => `${value}%`}
+                              position="top"
+                              fill="#030712"
+                              fontSize={12}
+                            />
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </CardContent>
+                  </Card>
+                  <Card className="w-full !border-[#E4E7EB] shadow-none">
+                    <CardHeader>
+                      <CardTitle>
+                        RM Team's Onboarding Achievement % (Last Month)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="h-64 pl-0">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={rmTeamData}>
+                          <XAxis
+                            dataKey="name"
+                            tick={{
+                              fontSize: 12,
+                              fill: "#000000",
+                              fontWeight: 500,
+                            }}
+                            axisLine={false}
+                            tickLine={false}
+                          />
+                          <CartesianGrid
+                            vertical={false}
+                            stroke="#C4C4C4"
+                            strokeDasharray="3 5"
+                          />
+                          <YAxis
+                            tick={{
+                              fontSize: 12,
+                              fill: "#000000",
+                              fontWeight: 500,
+                            }}
+                            ticks={[0, 20, 40, 60, 80, 100]}
+                            tickFormatter={(value) => `${value}%`}
+                            axisLine={false}
+                            tickLine={false}
+                          />
+
+                          <Tooltip formatter={(value) => `${value}%`} />
+                          <Bar
+                            dataKey="value"
+                            fill="#F1DCFF"
+                            radius={[4, 4, 0, 0]}
+                            barSize={24}
+                          >
+                            {/* Label shows value on top */}
+                            <LabelList
+                              dataKey="value"
+                              formatter={(value) => `${value}%`}
+                              position="top"
+                              fill="#030712"
+                              fontSize={12}
+                            />
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </CardContent>
+                  </Card>
+                </div>
+                <Card className="w-full  mx-auto !border-[#E4E7EB] shadow-none">
+                  <CardHeader>
+                    <CardTitle>FE Visits Achievement % (Last Month)</CardTitle>
+                  </CardHeader>
+                  <CardContent className="h-64 pl-0">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={fmTeamData}>
+                        <XAxis
+                          dataKey="name"
+                          tick={{
+                            fontSize: 12,
+                            fill: "#000000",
+                            fontWeight: 500,
+                          }}
+                          axisLine={false}
+                          tickLine={false}
+                        />
+                        <CartesianGrid
+                          vertical={false}
+                          stroke="#C4C4C4"
+                          strokeDasharray="3 5"
+                        />
+                        <YAxis
+                          tick={{
+                            fontSize: 12,
+                            fill: "#000000",
+                            fontWeight: 500,
+                          }}
+                          ticks={[0, 20, 40, 60, 80, 100]}
+                          tickFormatter={(value) => `${value}%`}
+                          axisLine={false}
+                          tickLine={false}
+                        />
+
+                        <Tooltip formatter={(value) => `${value}%`} />
+                        <Bar
+                          dataKey="value"
+                          fill="#EAEEF5"
+                          radius={[4, 4, 0, 0]}
+                          barSize={24}
+                        >
+                          {/* Label shows value on top */}
+                          <LabelList
+                            dataKey="value"
+                            formatter={(value) => `${value}%`}
+                            position="top"
+                            fill="#030712"
+                            fontSize={12}
+                          />
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         )}
       </div>

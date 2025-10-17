@@ -44,7 +44,7 @@ export default function AddMember() {
         <SheetTrigger asChild>
           <Button
             className={
-              "!P-0 bg-transparent absolute hover:bg-transparent cursor-pointer z-10"
+              "!P-0 bg-transparent w-[100px] absolute hover:bg-transparent cursor-pointer z-10"
             }
           ></Button>
         </SheetTrigger>

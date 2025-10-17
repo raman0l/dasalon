@@ -79,7 +79,7 @@ export const navItemsData = [
   { id: 4, name: "Partner", icon: <PatnershipIcon />, path: "/partner" },
   { id: 5, name: "sales", icon: <SalessIcon />, path: "/" },
   { id: 6, name: "Team", icon: <TeamsIcon />, path: "/team" },
-  { id: 7, name: "Report", icon: <ReportIcon />, path: "/" },
+  { id: 7, name: "Report", icon: <ReportIcon />, path: "/report" },
   {
     id: 8,
     name: "Training",
@@ -1523,5 +1523,110 @@ export const fieldsData = [
     label: "Campaign Message Sent",
     value: "63",
     note: "Count of campaign messages sent by salons.",
+  },
+];
+export const OverallTeamData = [
+  {
+    icon: <AppointmentIcon />,
+    title: "Team Onboarding Achievement",
+    value: "89%",
+    text: "Against total team target",
+  },
+  {
+    icon: <BankLinkIcon className={"!w-5 !h-5"} />,
+    title: "Avg. Active Salon Ratio",
+    value: "53.3%",
+    text: "Average across all FEs",
+  },
+  {
+    icon: <TeamIcon className={"!w-5 !h-5"} />,
+    title: "Team Visits Achievement",
+    value: "83%",
+    text: "Against total team target",
+  },
+  {
+    icon: <TeamIcon className={"!w-5 !h-5"} />,
+    title: "Sales Count",
+    value: "81%",
+    text: "Against total team target",
+  },
+];
+
+export const tcTeamData = [
+  { name: "Rohan Mehta", value: 82 },
+  { name: "Sneha Reddy", value: 82 },
+];
+export const rmTeamData = [
+  { name: "Rohan Mehta", value: 82 },
+  { name: "Sneha Reddy", value: 82 },
+  { name: "Vikram Patel", value: 85 },
+  { name: "Ananya Gupta", value: 91 },
+];
+export const fmTeamData = [
+  { name: "Rohan Mehta", value: 82 },
+  { name: "Sneha Reddy", value: 82 },
+  { name: "Vikram Patel", value: 85 },
+  { name: "Ananya Gupta", value: 91 },
+
+  { name: "Arjun Kumar", value: 78 },
+  { name: "Sneha Reddy", value: 82 },
+  { name: "Divya Joshi", value: 84 },
+  { name: "Kabir Das", value: 85 },
+  { name: "Ravi Sankar", value: 93 },
+  { name: "Pooja Desai", value: 94 },
+  { name: "Isaan Roy", value: 84 },
+];
+export const ReportRegisteredData = [
+  {
+    ids: "VIS-009",
+    salonname: "Luxe Locks Studio",
+    date: "15/07/2024 ",
+    issue: [{ val: 2 }, { val: 3 }],
+    offer: 9,
+    staff: 5,
+    promote: 5,
+    client: 6,
+    setup: 7,
+    status: "Planned",
+    remarks: "Interested in collaboration, requested service details.",
+  },
+  {
+    ids: "VISIT-09999",
+    salonname: "Divine Glow Stud..",
+    date: "18/08/2024 ",
+    issue: [{ val: 2 }, { val: 3 }],
+    offer: 8,
+    staff: 6,
+    promote: 6,
+    client: 6,
+    setup: 5,
+    status: "Expired",
+    remarks: "Not very responsive follow",
+  },
+  {
+    ids: "SVST-025",
+    salonname: "Élan Salon & Spa",
+    date: "19/08/2024 ",
+    issue: [{ val: 2 }, { val: 3 }],
+    offer: 8,
+    staff: 7,
+    promote: 8,
+    client: 8,
+    setup: 8,
+    status: "Planned",
+    remarks: "Wants to onboard ASAP. F",
+  },
+  {
+    ids: "VISIT-09999",
+    salonname: "Divine Glow Stud..",
+    date: "18/08/2024 ",
+    issue: [{ val: 2 }, { val: 3 }],
+    offer: 7,
+    staff: 8,
+    promote: 9,
+    client: 5,
+    setup: 6,
+    status: "Completed",
+    remarks: "Highly potential partner,located in a prime area.",
   },
 ];

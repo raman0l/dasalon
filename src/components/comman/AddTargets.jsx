@@ -34,15 +34,18 @@ export default function AddTargetsDialog() {
       <AlertDialogTrigger asChild>
         <Button
           className={
-            "!P-0 bg-transparent absolute hover:bg-transparent cursor-pointer z-10"
+            "!P-0 bg-transparent w-[190px] absolute hover:bg-transparent cursor-pointer z-10"
           }
         ></Button>
       </AlertDialogTrigger>
 
-      <AlertDialogContent className="lg:w-[400px] w-[350px] max-[400px]:w-full p-4 rounded-none">
+      <AlertDialogContent className="lg:w-[400px] w-[350px] max-[400px]:w-full rounded-none">
         <AlertDialogHeader>
-          <div className="flex gap-2 justify-between max-w-[400px] items-center">
-            <h2> Add Targets</h2>
+          <div className="flex gap-2 justify-between max-w-[350px] items-center p-4 pb-0">
+            <Heading
+              className={"!text-base text-[#030712] font-semibold"}
+              title={"Add Targets"}
+            />
             <Select>
               <SelectTrigger>
                 <SelectValue placeholder="Select Month" />
@@ -56,7 +59,7 @@ export default function AddTargetsDialog() {
           </div>
         </AlertDialogHeader>
 
-        <div className="space-y-4 max-h-[70vh] overflow-y-auto mt-4">
+        <div className="space-y-4 max-h-[75vh] overflow-y-auto w-full custom-scrollbar mt-4 p-4">
           <div className="flex flex-col gap-2">
             <Heading
               className="!text-sm font-semibold !text-[#030712]"
@@ -111,12 +114,16 @@ export default function AddTargetsDialog() {
           </div>
         </div>
 
-        <AlertDialogFooter className="flex justify-end gap-3 pt-4">
-          <Button variant="outline" onClick={() => setOpen(false)}>
+        <AlertDialogFooter className="flex justify-end gap-3 p-4">
+          <Button
+            variant="outline"
+            onClick={() => setOpen(false)}
+            className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 text-sm font-semibold text-[#030712] border border-[#E4E7EB] rounded-md hover:shadow-lg duration-300 ease-in-out cursor-pointer"
+          >
             Cancel
           </Button>
           <Button
-            className="bg-[#7D5DFE] hover:bg-[#6849f5]"
+            className="!bg-[#B751FB] hover:!bg-[#b751fbdd] cursor-pointer"
             onClick={() => setOpen(false)}
           >
             Save

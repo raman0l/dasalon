@@ -49,7 +49,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { SelectIcon } from "@radix-ui/react-select";
 import { Router } from "next/router";
 import { useRouter } from "next/navigation";
-import AddNewVisitReport from "../tab2/AddNewVisitReport";
+import AddNewVisitReport from "./AddNewVisitReport";
 
 // Helper Function
 const getDisplayName = (value, data) => {

@@ -50,12 +50,11 @@ import {
 import { ClockIcon, MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import VisitReport from "../tab1/VisitReport";
 import Heading from "@/components/comman/Heading";
 
-import NewVisit from "../tab1/NewVisit";
-import FollowUp from "../tab1/FollowUp";
-import AddNewVisitReport from "./AddNewVisitReport";
+import FollowUp from "../../../comman/FollowUp";
+import AddNewVisitReport from "../../../comman/AddNewVisitReport";
+import NewVisit from "@/components/comman/NewVisit";
 
 export default function Registered() {
   const getDisplayName = (value, data) =>

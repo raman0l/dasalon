@@ -42,7 +42,7 @@ import {
 } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
 import Registered from "./Registered";
-import AddNewVisitReport from "./AddNewVisitReport";
+import AddNewVisitReport from "../../../comman/AddNewVisitReport";
 
 export default function GrowthTask() {
   const [statusFilter, setStatusFilter] = useState(undefined);

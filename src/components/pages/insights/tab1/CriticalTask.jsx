@@ -40,7 +40,7 @@ import {
 import { CriticalTaskData } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
 import Registered from "./Registered";
-import AddNewVisitReport from "../tab2/AddNewVisitReport";
+import AddNewVisitReport from "../../../comman/AddNewVisitReport";
 
 export default function CriticalTask() {
   const [statusFilter, setStatusFilter] = useState(undefined); // undefined for All
