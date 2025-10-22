@@ -39,7 +39,7 @@ import {
 } from "@/components/helper/Icon";
 import { CriticalTaskData } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
-import Registered from "./Registered";
+import Registered from "../../../comman/Registered";
 import AddNewVisitReport from "../../../comman/AddNewVisitReport";
 
 export default function CriticalTask() {

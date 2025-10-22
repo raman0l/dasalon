@@ -41,7 +41,7 @@ import {
   menuItemstab2Data,
 } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
-import Registered from "./Registered";
+import Registered from "../../../comman/Registered2";
 import AddNewVisitReport from "../../../comman/AddNewVisitReport";
 
 export default function GrowthTask() {

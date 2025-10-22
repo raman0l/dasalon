@@ -10,7 +10,10 @@ import {
   Reporttab2Icon,
 } from "@/components/helper/Icon";
 import Pragraph from "@/components/comman/Pragraph";
-import Registered from "./tab1/Registered";
+
+import Prospective from "./Prospective";
+import { devIndicatorServerState } from "next/dist/server/dev/dev-indicator-server-state";
+import Tab1 from "./Tab1";
 
 export function Report() {
   const [activeTab, setActiveTab] = useState("registered");
@@ -52,30 +55,33 @@ export function Report() {
                   <Reporttab2Icon /> Prospective
                 </button>
               </div>
-              <div className="flex items-center gap-4 max-[420px]:justify-end max-[420px]:pb-2">
-                <div className="flex items-center gap-2 !text-sm">
-                  <span className="w-4 h-4 rounded-full bg-[#f00]"></span>
-                  <Pragraph
-                    className={
-                      "lg:!text-sm !text-xs font-semibold leading-[142%] tracking-[-0.28px] !text-[#030712]"
-                    }
-                    title={"Critical"}
-                  />
+              {activeTab === "registered" && (
+                <div className="flex items-center gap-4 max-[420px]:justify-end max-[420px]:pb-2">
+                  <div className="flex items-center gap-2 !text-sm">
+                    <span className="w-4 h-4 rounded-full bg-[#f00]"></span>
+                    <Pragraph
+                      className={
+                        "lg:!text-sm !text-xs font-semibold leading-[142%] tracking-[-0.28px] !text-[#030712]"
+                      }
+                      title={"Critical"}
+                    />
+                  </div>
+                  <div className="flex items-center gap-2 !text-sm">
+                    <span className="w-4 h-4 rounded-full bg-[#F5640A]"></span>
+                    <Pragraph
+                      className={
+                        "lg:!text-sm !text-xs font-semibold leading-[142%] tracking-[-0.28px] !text-[#030712]"
+                      }
+                      title={"Growth"}
+                    />
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 !text-sm">
-                  <span className="w-4 h-4 rounded-full bg-[#F5640A]"></span>
-                  <Pragraph
-                    className={
-                      "lg:!text-sm !text-xs font-semibold leading-[142%] tracking-[-0.28px] !text-[#030712]"
-                    }
-                    title={"Growth"}
-                  />
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
-          {activeTab === "registered" && <Registered />}
+          {activeTab === "registered" && <Tab1 />}
+          {activeTab === "prospective" && <Prospective />}
         </div>
       </div>
     </>

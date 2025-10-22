@@ -38,7 +38,7 @@ import {
   ProspectivePartnerData,
   RegisteredPartnerData,
 } from "@/components/helper/Helper";
-import Registered from "../insights/tab1/Registered";
+import Registered from "../../comman/Registered";
 import AddNewVisitReport from "../../comman/AddNewVisitReport";
 
 function Partner() {

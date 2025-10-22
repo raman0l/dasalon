@@ -52,8 +52,8 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Heading from "@/components/comman/Heading";
 
-import FollowUp from "../../../comman/FollowUp";
-import AddNewVisitReport from "../../../comman/AddNewVisitReport";
+import FollowUp from "./FollowUp";
+import AddNewVisitReport from "./AddNewVisitReport";
 import NewVisit from "@/components/comman/NewVisit";
 
 export default function Registered() {

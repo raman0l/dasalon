@@ -40,21 +40,9 @@ import {
 import { MoreVerticalIcon } from "lucide-react";
 import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
 import StatusBadge from "@/components/comman/StatusBadge2";
+import Registered from "@/components/comman/Registered";
 
-// import {
-//   AddFollowUpIcon,
-//   AddVisitIcon,
-//   AssignPartnerIcon,
-//   FilterIcon,
-//   GoodIcon,
-//   ViewIcon,
-//   ViewReportIcon,
-// } from "@/components/helper/Icon";
-// import { CriticalTaskData } from "@/components/helper/Helper";
-// import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
-// import { Calendar } from "@/components/ui/calendar";
-
-function Registered() {
+function Tab1() {
   const [statusFilter, setStatusFilter] = useState(undefined);
   const [searchTerm, setSearchTerm] = useState("");
   const [date, setDate] = useState(null);
@@ -91,9 +79,9 @@ function Registered() {
           <SelectContent>
             <SelectGroup>
               <SelectItem value={undefined}> All</SelectItem>
-              <SelectItem value="Active">Active</SelectItem>
+              <SelectItem value="Active">Campleted</SelectItem>
               <SelectItem value="Expired">Expired</SelectItem>
-              <SelectItem value="Due">Due</SelectItem>
+              <SelectItem value="Due">Planned</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -147,7 +135,7 @@ function Registered() {
         </div>
       </div>
 
-      <div className="overflow-x-auto custom-scrollbar border-2 border-[#DCE0E5] rounded-[5px]">
+      <div className="overflow-x-auto !custom-scrollbar border-2 border-[#DCE0E5] rounded-[5px]">
         <Table className="min-w-[1200px]">
           <TableHeader>
             <TableRow className="bg-[#F9FAFB] text-[#808188] font-semibold text-xs lg:text-sm">
@@ -161,6 +149,7 @@ function Registered() {
               <TableHead className="py-2 px-3 text-left">offer</TableHead>
               <TableHead className="py-2 px-3 text-left">Promote </TableHead>
               <TableHead className="py-2 px-3 text-left">Client</TableHead>
+              <TableHead className="py-2 px-3 text-left">Set Up</TableHead>
               <TableHead className="py-2 px-3 text-left">Status</TableHead>
               <TableHead className="py-2 px-3 text-left">Remarks</TableHead>
               <TableHead className="py-2 px-3 text-left">Action</TableHead>
@@ -180,14 +169,16 @@ function Registered() {
               >
                 <TableCell className="inline-flex items-center gap-2 py-2 px-3 cursor-pointer">
                   {row.ids}
-                  {/* <Registered /> */}
+                  <Registered />
                 </TableCell>
                 <TableCell className="py-2 px-3">{row.salonname}</TableCell>
-                <TableCell className="py-2 px-3 flex flex-col">
-                  {row.date}
-                  <span className="text-xs font-medium text-[#808188]">
-                    9am - 10am
-                  </span>
+                <TableCell className="py-2 px-3">
+                  <div className="flex flex-col">
+                    {row.date}
+                    <span className="text-xs font-medium text-[#808188]">
+                      9am - 10am
+                    </span>
+                  </div>
                 </TableCell>
 
                 <TableCell className="py-2 px-3 flex gap-1">
@@ -204,7 +195,7 @@ function Registered() {
                     </span>
                   ))}
                 </TableCell>
-
+                <TableCell className="py-2 px-3">{row.staff}</TableCell>
                 <TableCell className="py-2 px-3">{row.offer}</TableCell>
                 <TableCell className="py-2 px-3">{row.promote}</TableCell>
                 <TableCell className="py-2 px-3">{row.client}</TableCell>
@@ -304,4 +295,4 @@ function Registered() {
   );
 }
 
-export default Registered;
+export default Tab1;

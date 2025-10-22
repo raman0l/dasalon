@@ -16,7 +16,7 @@ import {
   TeamsIcon,
 } from "@/components/helper/Icon";
 import Pragraph from "@/components/comman/Pragraph";
-import { MemoryStick, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   fmnmanberData,
