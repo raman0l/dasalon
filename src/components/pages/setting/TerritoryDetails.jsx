@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Heading from "@/components/comman/Heading";
 import { Button } from "@/components/ui/button";
 import AddMember from "@/components/comman/AddMember";
-import { totalPincodeData } from "@/components/helper/Helper";
+import { memberformData, totalPincodeData } from "@/components/helper/Helper";
 import Pragraph from "@/components/comman/Pragraph";
 import { MemberIcon, RightgreenIcon } from "@/components/helper/Icon";
 import {
@@ -118,7 +118,7 @@ function TerritoryDetails() {
               ))}
             </div>
           </div>
-          <div>
+          <div className="flex flex-col gap-4">
             <div className="flex gap-2 justify-between items-center">
               <Select
                 value={statusFilter}
@@ -186,16 +186,13 @@ function TerritoryDetails() {
                 </TableHeader>
 
                 <TableBody>
-                  {mamberformdata.map((row, idx) => (
+                  {memberformData.map((row, idx) => (
                     <TableRow
                       key={`${row.id}-${idx}`}
-                      className={
-                        "border-b border-[#8081889a] border-l-transparent border-l-[3px]  bg-white hover:bg-[#EBD9FF] hover:border-l-[#b751fb]"
-                      }
+                      className={"border-b border-[#8081889a]"}
                     >
                       <TableCell className="inline-flex items-center gap-2 py-2 px-3 cursor-pointer">
                         {row.pin}
-                        <Registered />
                       </TableCell>
                       <TableCell className="py-2 px-3">{row.city}</TableCell>
                       <TableCell className="py-2 px-3">
@@ -212,7 +209,20 @@ function TerritoryDetails() {
                       <TableCell className="py-2 px-3">
                         {row.HealthScore}
                       </TableCell>
-                      <TableCell className="py-2 px-3">{row.issue}</TableCell>
+                      <TableCell className="py-2 px-3 flex gap-1">
+                        {row.issue.map((item, i) => (
+                          <span
+                            key={i}
+                            className={`border py-[1px] px-[7px] rounded-full ${
+                              i === 0
+                                ? "border-[#FF0000] bg-[rgba(255,136,136,0.34)]"
+                                : "border-[#F5640A] bg-[#F3CED6]"
+                            }`}
+                          >
+                            {item.val}
+                          </span>
+                        ))}
+                      </TableCell>
 
                       <TableCell className="py-2 px-3">
                         {row.TotalSales}
