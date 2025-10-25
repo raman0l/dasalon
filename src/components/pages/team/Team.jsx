@@ -6,8 +6,10 @@ import Heading from "@/components/comman/Heading";
 import {
   CalenderIcon,
   CardUiIcon,
+  FemaleIcon,
   GenderIcon,
   GmailIcon,
+  MaleIcon,
   MenuTeamIcon,
   PerformanceIcon,
   PhoneIcon,
@@ -176,7 +178,6 @@ export function Team() {
               </div>
             </div>
 
-            {/* Member Lists */}
             {[
               { title: "TC List ( 2 )", data: tcnmanberData },
               { title: "RM List ( 4 )", data: rmnmanberData },
@@ -218,13 +219,14 @@ export function Team() {
                                 title={member.name}
                               />
                               <div className="flex items-center gap-2">
-                                <div className="flex items-center gap-1 bg-[#E4E7EB] border border-[#808188] rounded-full px-2.5 py-1">
-                                  <GenderIcon />
-                                  <Pragraph
-                                    className="!text-[10px] text-[#030712] font-normal"
-                                    title={member.gender}
-                                  />
-                                </div>
+                                <span className="text-[10px] font-normal flex items-center gap-1 border border-[#808188] bg-[#E4E7EB] px-2 py-[2px] rounded-full w-fit">
+                                  {member.gender === "Male" ? (
+                                    <MaleIcon />
+                                  ) : (
+                                    <FemaleIcon />
+                                  )}
+                                  {member.gender}
+                                </span>
                                 <div className="w-px h-5 bg-[#E4E7EB] group-hover:bg-white transition-all"></div>
                                 <div
                                   className="rounded-full px-2.5 py-1 font-semibold"

@@ -10,6 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
+import UserSettings from "@/components/pages/usersetting/UserSettings";
 
 export default function Navbar() {
   const [active, setActive] = useState(1);
@@ -137,13 +138,15 @@ export default function Navbar() {
         )}
       </div>
       <div className="rounded-full mx-auto max-w-8 pb-5">
-        <Image
-          className="rounded-full p-1 bg-white"
-          src={"/assets/png/women.png"}
-          alt="women"
-          width={32}
-          height={32}
-        />
+        <Link href="/user-setting">
+          <Image
+            className="rounded-full p-1 bg-white cursor-pointer hover:scale-105 transition"
+            src={"/assets/png/women.png"}
+            alt="women"
+            width={32}
+            height={32}
+          />
+        </Link>
       </div>
     </div>
   );

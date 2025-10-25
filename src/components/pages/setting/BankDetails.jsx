@@ -14,16 +14,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Search } from "lucide-react";
-import { fermtcData } from "@/components/helper/Helper";
+import { BankDetailsData, fermtcData } from "@/components/helper/Helper";
 import Image from "next/image";
 import Pragraph from "@/components/comman/Pragraph";
 import {
+  AccountNoIcon,
+  AddedOnIcon,
+  BankIcon,
+  FemaleIcon,
   GenderIcon,
   GmailIcon,
+  IfscIcon,
+  MaleIcon,
   PhoneIcon,
   SalonIcon,
+  StatusIcon,
   TeamMemberIcon,
 } from "@/components/helper/Icon";
+import AddAccountSheet from "@/components/comman/AddAccount";
 
 function BankDetails() {
   const [open, setOpen] = useState(false);
@@ -55,10 +63,11 @@ function BankDetails() {
             open={open}
             onClose={setOpen}
           >
+            <AddAccountSheet />
             <span className="text-xl text-white">+ </span>Add Account
           </Button>
         </div>
-        <div>
+        <div className="px-5 pt-5">
           <div className="flex gap-2 justify-between items-center">
             <Select
               value={statusFilter}
@@ -92,69 +101,99 @@ function BankDetails() {
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {fermtcData.map((member, index) => (
-              <div key={index} className="group">
-                <div
-                  className="relative bg-white rounded-xl border border-[#E4E7EB] shadow-sm transition-all duration-300 group-hover:bg-[#F1DCFF] cursor-pointer"
-                  onClick={() => setOpen(true)}
-                >
-                  <div
-                    className="absolute top-2 left-2 w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-2.5 lg:h-2.5 rounded-full"
-                    style={{ backgroundColor: member.color }}
-                  ></div>
-
-                  <div className="px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-5">
-                    <div className="flex items-center gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 px-5 pt-5">
+            {BankDetailsData.map((item, index) => (
+              <div className="group max-w-[307px]" key={index}>
+                <div className="group-hover:bg-[#F4E3FF] bg-white rounded-2xl shadow-sm border border-[#E4E7EB] p-4 cursor-pointer space-y-3">
+                  {/* Header */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
                       <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={48}
-                        height={48}
-                        className="object-cover rounded-full"
+                        src={item.avatar}
+                        alt={item.name}
+                        width={50}
+                        height={50}
+                        className="rounded-full"
                       />
                       <div className="flex flex-col gap-1">
                         <Pragraph
-                          className="font-semibold lg:!text-base !text-sm !text-[#030712] leading-[150%] tracking-[0.32px]"
-                          title={member.name}
+                          className={
+                            "font-semibold lg:!text-base !text-sm !text-[#030712]"
+                          }
+                          title={item.name}
                         />
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-1 bg-[#E4E7EB] border border-[#808188] rounded-full px-2.5 py-1">
-                            <GenderIcon />
-                            {member.gender}
-                          </div>
-                        </div>
+                        <span className="text-[10px] font-normal flex items-center gap-1  border border-[#808188] bg-[#E4E7EB] px-2 py-[2px] rounded-full w-fit">
+                          {item.gender === "Male" ? (
+                            <MaleIcon />
+                          ) : (
+                            <FemaleIcon />
+                          )}
+                          {item.gender}
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="border-t border-[#E4E7EB] px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-5 flex flex-col gap-2 transition-all duration-300 group-hover:border-white">
-                    <div className="flex gap-2 items-center">
-                      <PhoneIcon />
+                  <div className="border-t-1 group-hover:border-white border-[#E4E7EB] pt-3 space-y-2 text-[13px] text-gray-800">
+                    <div className="flex items-center gap-2">
+                      <BankIcon size={14} />
                       <Pragraph
-                        className="!text-xs !text-[#030712] font-medium"
-                        title={member.phone}
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={"Bank:"}
+                      />
+                      <Pragraph
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={item.bank}
                       />
                     </div>
-                    <div className="flex gap-2 items-center">
-                      <GmailIcon />
+                    <div className="flex items-center gap-2">
+                      <AccountNoIcon size={14} />
                       <Pragraph
-                        className="!text-xs !text-[#030712] font-medium"
-                        title={member.email}
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={"A/C NO.:"}
+                      />
+                      <Pragraph
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={item.accountNo}
                       />
                     </div>
-                    <div className="flex gap-2 items-center">
-                      <TeamMemberIcon />
+                    <div className="flex items-center gap-2">
+                      <IfscIcon size={14} />
                       <Pragraph
-                        className="!text-xs !text-[#030712] font-medium"
-                        title={`manages: ${member.manages}`}
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={"IFSC:"}
+                      />
+                      <Pragraph
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={item.ifsc}
                       />
                     </div>
-                    <div className="flex gap-2 items-center">
-                      <SalonIcon />
+                    <div className="flex items-center gap-2">
+                      <AddedOnIcon size={14} />
                       <Pragraph
-                        className="!text-xs !text-[#030712] font-medium"
-                        title={`totalSalons: ${member.totalSalons}`}
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={"Added On:"}
+                      />
+                      <Pragraph
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={item.addedOn}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <StatusIcon size={14} />
+                      <Pragraph
+                        className={"!text-[13px] font-medium !text-[#030712]"}
+                        title={"Status:"}
+                      />
+                      <Pragraph
+                        className={`px-2 py-[1px] rounded-full !text-[13px] font-medium !text-[#030712] ${
+                          item.status === "Verified"
+                            ? "text-[#030712] bg-[#E3F7E9] border-[#31A553] border-1"
+                            : item.status === "Pending"
+                            ? "text-[#030712] bg-[#FFEFDB] border-[#F5640A] border-1"
+                            : "text-[#030712] bg-[#FF888857] border-[#FF0000] border-1"
+                        }`}
+                        title={item.status}
                       />
                     </div>
                   </div>

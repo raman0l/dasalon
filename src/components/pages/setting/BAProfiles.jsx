@@ -5,7 +5,7 @@ import Pragraph from "@/components/comman/Pragraph";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { ContcatIcon, GenderIcon } from "@/components/helper/Icon";
+import { ContcatIcon, MaleIcon } from "@/components/helper/Icon";
 
 function BAProfiles() {
   const [activeTab, setActiveTab] = useState("Personal Details");
@@ -88,7 +88,7 @@ function BAProfiles() {
                         label: "Gender:",
                         value: (
                           <div className="flex gap-1 items-center">
-                            <GenderIcon />
+                            <MaleIcon />
                             <Pragraph
                               className="!text-sm font-medium !text-[#030712]"
                               title="Male"

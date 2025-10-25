@@ -23,13 +23,10 @@ import {
   CurrentPerformanceIcon,
   DisableIcon,
   EditIcon,
-  GenderIcon,
   GrowthIcon,
   MailIcon,
+  MaleIcon,
   PastPerformanceIcon,
-  PhoneIcon,
-  SalesIcon,
-  SalonIcon,
   TopBottomIcon,
   ViewsIcon,
 } from "@/components/helper/Icon";
@@ -138,7 +135,7 @@ export default function MemberDetail() {
                       Wade Warren
                     </h2>
                     <div className="flex items-center gap-1  bg-[#E4E7EB] rounded-[100px] px-2 py-[2px] border-[#808188] border-1">
-                      <GenderIcon />
+                      <MaleIcon />
                       <Pragraph
                         className={
                           "font-normal leading-[160%] tracking-[-0.2px] !text-[10px] !text-[#030712]"
@@ -207,7 +204,7 @@ export default function MemberDetail() {
                         Gender
                       </p>
                       <span className="text-sm text-[#030712] font-semibold flex items-center">
-                        <GenderIcon /> Male
+                        <MaleIcon /> Male
                       </span>
                     </div>
                     <div className="flex justify-between border-b-1 border-[#E4E7EB] py-2 m-0">

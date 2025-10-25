@@ -1,11 +1,18 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 import Heading from "@/components/comman/Heading";
 import Pragraph from "@/components/comman/Pragraph";
 import { settingData } from "@/components/helper/Helper";
-import { BadIcon } from "@/components/helper/Icon";
-import React from "react";
-import TerritoryDetails from "./TerritoryDetails";
 
 function Setting() {
+  const router = useRouter();
+
+  const handleClick = (path) => {
+    router.push(path); // Next.js route
+  };
+
   return (
     <div>
       <div className="border-b-1 border-[#DCE0E5]">
@@ -19,6 +26,7 @@ function Setting() {
       <div className="flex flex-wrap gap-[40px_50px] justify-center max-w-[940px] mx-auto mt-30">
         {settingData.map((item, index) => (
           <div
+            onClick={() => handleClick(item.path)}
             key={index}
             className="border-[#E4E7EB] border-1 rounded-2xl flex flex-col gap-3 p-4 w-[345px] cursor-pointer"
           >

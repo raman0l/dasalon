@@ -1,10 +1,10 @@
-import Setting from "@/components/pages/setting/Setting";
+import BAProfiles from "@/components/pages/setting/BAProfiles";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <Setting />
+      <BAProfiles />
     </div>
   );
 }

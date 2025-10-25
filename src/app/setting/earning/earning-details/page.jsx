@@ -1,10 +1,10 @@
-import Setting from "@/components/pages/setting/Setting";
+import EarningDetails from "@/components/pages/setting/EarningDetails";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <Setting />
+      <EarningDetails />
     </div>
   );
 }

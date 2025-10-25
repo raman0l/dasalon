@@ -1,10 +1,10 @@
-import Setting from "@/components/pages/setting/Setting";
+import Platform from "@/components/pages/setting/Platform";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <Setting />
+      <Platform />
     </div>
   );
 }

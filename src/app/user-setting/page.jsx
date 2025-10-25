@@ -1,10 +1,10 @@
-import Setting from "@/components/pages/setting/Setting";
+import UserSettings from "@/components/pages/usersetting/UserSettings";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <Setting />
+      <UserSettings />
     </div>
   );
 }

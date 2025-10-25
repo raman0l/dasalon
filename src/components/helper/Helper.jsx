@@ -69,6 +69,8 @@ import {
   BankdetailsIcon,
   EarningIcon,
   DollerIcon,
+  FileIcon,
+  Appointment3Icon,
 } from "./Icon";
 import { BedIcon } from "lucide-react";
 
@@ -82,16 +84,22 @@ export const navItemsData = [
   },
   { id: 3, name: "Insights", icon: <SearchIcon />, path: "/insights" },
   { id: 4, name: "Partner", icon: <PatnershipIcon />, path: "/partner" },
-  { id: 5, name: "sales", icon: <SalessIcon />, path: "/" },
-  { id: 6, name: "Team", icon: <TeamsIcon />, path: "/team" },
-  { id: 7, name: "Report", icon: <ReportIcon />, path: "/report" },
   {
-    id: 8,
+    id: 5,
+    name: "Appointment",
+    icon: <Appointment3Icon />,
+    path: "/appointment",
+  },
+  { id: 6, name: "sales", icon: <SalessIcon />, path: "/sales" },
+  { id: 7, name: "Team", icon: <TeamsIcon />, path: "/team" },
+  { id: 8, name: "Report", icon: <ReportIcon />, path: "/report" },
+  {
+    id: 9,
     name: "Training",
     icon: <RoundmodeltrainingIcon />,
     path: "/training",
   },
-  { id: 9, name: "setting", icon: <SettingIcon />, path: "/setting" },
+  { id: 10, name: "setting", icon: <SettingIcon />, path: "/setting" },
 ];
 export const statsData = [
   {
@@ -1817,22 +1825,26 @@ export const prospectiveData = [
 export const settingData = [
   {
     icon: <TerritoryDetailsIcon />,
+    path: "/setting/territory-details",
     title: "Territory Details",
     text: "View performance Metrics and PIN - wise salon distributions",
   },
   {
     icon: <BAProfilesIcon />,
     title: "BA Profiles",
+    path: "/setting/ba-profiles",
     text: "View and manage Business Associate Infirmations",
   },
   {
     icon: <BankdetailsIcon />,
     title: "Bank details",
+    path: "/setting/bank-details",
     text: "Add or update bank account details for payout",
   },
   {
     icon: <EarningIcon />,
     title: "Earning",
+    path: "/setting/earning/platform",
     text: "Track revenue generated and view commission breakdowns",
   },
 ];
@@ -1917,4 +1929,211 @@ export const memberformData = [
     TotalSales: "₹28,600",
     remarks: "Palavasna",
   },
+];
+
+export const BankDetailsData = [
+  {
+    name: "Aarav Sharma",
+    gender: "Male",
+    avatar: "/assets/png/aarav-sharma.png",
+    bank: "HDFC Bank",
+    accountNo: "XXXX XXXX 5423",
+    ifsc: "HDFC0001234",
+    addedOn: "02 June 2025",
+    status: "Verified",
+  },
+  {
+    name: "Ramesh Patel",
+    gender: "Male",
+    avatar: "/assets/png/ramesh-patel.png",
+    bank: "ICICI Bank",
+    accountNo: "XXXX XXXX 9123",
+    ifsc: "ICIC0003321",
+    addedOn: "02 June 2025",
+    status: "Pending",
+  },
+  {
+    name: "Priya Sharma",
+    gender: "Female",
+    avatar: "/assets/png/priya-sharma.png",
+    bank: "ICICI Bank",
+    accountNo: "XXXX XXXX 4125",
+    ifsc: "AXIS0000945",
+    addedOn: "02 June 2025",
+    status: "Rejected",
+  },
+];
+
+export const PlatformEarningData = [
+  {
+    RevenueType: "Subscription",
+    Count: 18,
+    Revenue: "₹25,000  ",
+    RevenueGrowth: "88 %",
+  },
+  {
+    RevenueType: "Get Featured",
+    Count: 12,
+    Revenue: "₹30,000  ",
+    RevenueGrowth: "90 %",
+  },
+  {
+    RevenueType: "Ads Manager",
+    Count: 10,
+    Revenue: "₹35,000  ",
+    RevenueGrowth: "92 %",
+  },
+  {
+    RevenueType: "Total",
+    Count: 40,
+    Revenue: "₹90,000  ",
+    RevenueGrowth: "96 %",
+  },
+];
+
+export const EarningDetailsData = [
+  {
+    image: "/assets/png/ramesh-patel.png",
+    name: "Esther Howard",
+    TerritoryName: "Western Crest",
+    TotalEarning: "₹1,70,000",
+    TotalAmount: "₹75,500",
+    TransactionID: "TXN8745KLM932",
+    Remarks: "Earnings have shown consistent month-on-month growth.",
+    File: <FileIcon />,
+  },
+  {
+    image: "/assets/png/ramesh-patel.png",
+    name: "Guy Hawkins",
+    TerritoryName: "Western Crest",
+    TotalEarning: "₹1,25,000",
+    TotalAmount: "₹89,999",
+    TransactionID: "TRX202506140934",
+    Remarks: "Top-performing location in its cluster.",
+    File: <FileIcon />,
+  },
+  {
+    image: "/assets/png/ramesh-patel.png",
+    name: "Esther Howard",
+    TerritoryName: "Western Crest",
+    TotalEarning: "₹1,75,500",
+    TotalAmount: "₹60,000",
+    TransactionID: "TXN-AHND-502398",
+    Remarks: "Increased footfall led to better earnings this week.",
+    File: <FileIcon />,
+  },
+  {
+    image: "/assets/png/ramesh-patel.png",
+    name: "Esther Howard",
+    TerritoryName: "Western Crest",
+    TotalEarning: "₹1,70,000",
+    TotalAmount: "₹75,500",
+    TransactionID: "TXN8745KLM932",
+    Remarks: "Earnings have shown consistent month-on-month growth.",
+    File: <FileIcon />,
+  },
+  {
+    image: "/assets/png/ramesh-patel.png",
+    name: "Guy Hawkins",
+    TerritoryName: "Western Crest",
+    TotalEarning: "₹1,25,000",
+    TotalAmount: "₹76,500",
+    TransactionID: "TRX202506140934",
+    Remarks: "Top-performing location in its cluster.",
+    File: <FileIcon />,
+  },
+];
+export const ServiceData = [
+  { name: "Mon", value: 40000 },
+  { name: "Tue", value: 28000 },
+  { name: "Wed", value: 48000 },
+  { name: "Thu", value: 33000 },
+  { name: "Fri", value: 20000 },
+  { name: "Sat", value: 25000 },
+  { name: "sun", value: 42000 },
+];
+export const PackageData = [
+  { name: "Mon", value: 33300 },
+  { name: "Tue", value: 19000 },
+  { name: "Wed", value: 45000 },
+  { name: "Thu", value: 27000 },
+  { name: "Fri", value: 32000 },
+  { name: "Sat", value: 49000 },
+  { name: "sun", value: 12000 },
+];
+export const ProductData = [
+  { name: "Mon", value: 31000 },
+  { name: "Tue", value: 14000 },
+  { name: "Wed", value: 28000 },
+  { name: "Thu", value: 48000 },
+  { name: "Fri", value: 37000 },
+  { name: "Sat", value: 20000 },
+  { name: "sun", value: 43000 },
+];
+export const VoucherData = [
+  { name: "Mon", value: 26000 },
+  { name: "Tue", value: 36000 },
+  { name: "Wed", value: 47000 },
+  { name: "Thu", value: 32000 },
+  { name: "Fri", value: 19000 },
+  { name: "Sat", value: 27000 },
+  { name: "sun", value: 12000 },
+];
+export const MembershipData = [
+  { name: "Mon", value: 26000 },
+  { name: "Tue", value: 13000 },
+  { name: "Wed", value: 29000 },
+  { name: "Thu", value: 47000 },
+  { name: "Fri", value: 19000 },
+  { name: "Sat", value: 27000 },
+  { name: "sun", value: 12000 },
+];
+export const GiftCardData = [
+  { name: "Mon", value: 34000 },
+  { name: "Tue", value: 19000 },
+  { name: "Wed", value: 42000 },
+  { name: "Thu", value: 11000 },
+  { name: "Fri", value: 31000 },
+  { name: "Sat", value: 48000 },
+  { name: "sun", value: 38000 },
+];
+export const Top10ServicesData = [
+  { name: "Hair Spa", value: 8.8 },
+  { name: "Hair Color", value: 7.0 },
+  { name: "Cutting", value: 5.0 },
+  { name: "Face Wash", value: 3.8 },
+  { name: "Nail art", value: 9.4 },
+  { name: "Blow out", value: 6.6 },
+  { name: "Manicure", value: 8.8 },
+  { name: "Keratin", value: 7.8 },
+  { name: "Waxing", value: 4.7 },
+  { name: "Threading", value: 3.0 },
+];
+export const TopSellingProductsData = [
+  { name: "Skin Care", value: 9.4 },
+  { name: "Makeup", value: 4.4 },
+  { name: "Masks", value: 7.0 },
+  { name: "Aloe Vera", value: 6.3 },
+  { name: "Retional", value: 9.8 },
+  { name: "Perfumes", value: 3.0 },
+  { name: "Scrubs", value: 3.9 },
+  { name: "Lakme", value: 6.0 },
+  { name: "Clinique", value: 8.8 },
+  { name: "Fragrances", value: 7.1 },
+];
+
+export const statusSummaryData = [
+  { label: "New", count: 20, color: "#FFEFDB", border: "#F58400" },
+  { label: "Confirmed", count: 13, color: "#FFF", border: "#8EBAF6" },
+  { label: "Completed", count: 21, color: "#E3F7E9", border: "#31A553" },
+  { label: "Expired", count: 15, color: "#FFFF", border: "#A855F7" },
+  { label: "No Show", count: 19, color: "#FFF", border: "#B3B3B3" },
+  { label: "Canceled", count: 24, color: "#F13737", border: "#E51010" },
+];
+export const filtersData = [
+  { label: "Select TC", options: ["TC 1", "TC 2", "TC 3"] },
+  { label: "Select RM", options: ["RM 1", "RM 2"] },
+  { label: "Select FE", options: ["FE 1", "FE 2"] },
+  { label: "Select Status", options: ["New", "Confirmed", "Completed"] },
+  { label: "Select Booking", options: ["Today", "Upcoming", "Past"] },
 ];

@@ -1,10 +1,10 @@
-import Setting from "@/components/pages/setting/Setting";
+import BankDetails from "@/components/pages/setting/BankDetails";
 import React from "react";
 
 function page() {
   return (
     <div>
-      <Setting />
+      <BankDetails />
     </div>
   );
 }
