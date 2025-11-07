@@ -1,4 +1,4 @@
-import Sales from "@/components/pages/sales/Sales";
+import Sales from "@/components/pages/home/sales/Sales";
 import React from "react";
 
 function page() {

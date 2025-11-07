@@ -71,6 +71,8 @@ import {
   DollerIcon,
   FileIcon,
   Appointment3Icon,
+  GreenIcon,
+  BlueIcon,
 } from "./Icon";
 import { BedIcon } from "lucide-react";
 
@@ -2137,3 +2139,100 @@ export const filtersData = [
   { label: "Select Status", options: ["New", "Confirmed", "Completed"] },
   { label: "Select Booking", options: ["Today", "Upcoming", "Past"] },
 ];
+
+export const appointmentsData = [
+  {
+    icon: <GreenIcon />,
+    id: "#A-BJBG4F",
+    customer: {
+      name: "Wade Warren",
+      phone: "+91 996 6372 6386",
+      avatar: "/assets/png/Wadewarren.png",
+    },
+    date: "14/07/2024",
+    time: "9am - 10am",
+    status: "New",
+    amount: "₹1,990.00",
+    staff: "Priya Sharma",
+    service: "Hair Styling",
+    package: "+3",
+    venue: "Decadence Hair & Beauty",
+  },
+  {
+    icon: <BlueIcon />,
+    id: "#A-USSB90",
+    customer: {
+      name: "Esther Howard",
+      phone: "+91 996 6372 6386",
+      avatar: "/assets/png/ramesh-patel.png",
+    },
+    date: "13/07/2024",
+    time: "9am - 10am",
+    status: "Confirmed",
+    amount: "₹3,300.00",
+    staff: "Rohit Mehta",
+    service: "Jumbo Package",
+    package: "",
+    venue: "Decadence Hair & Beauty",
+  },
+  {
+    icon: <GreenIcon />,
+    id: "#A-XAIYXB",
+    customer: {
+      name: "Jenny Wilson",
+      phone: "+91 996 6372 6386",
+      avatar: "/assets/png/Wadewarren.png",
+    },
+    date: "12/07/2024",
+    time: "9am - 10am",
+    status: "Completed",
+    amount: "₹1,650.00",
+    staff: "Neha Gupta",
+    service: "Hair Styling",
+    package: "+2",
+    venue: "Decadence Hair & Beauty",
+  },
+  {
+    icon: <BlueIcon />,
+    id: "#A-XAYKXB",
+    customer: {
+      name: "Jenny Wilson",
+      phone: "+91 896 6372 6386",
+      avatar: "/assets/png/ramesh-patel.png",
+    },
+    date: "12/07/2024",
+    time: "9am - 10am",
+    status: "Expired",
+    amount: "₹1,650.00",
+    staff: "Neha Gupta",
+    service: "Bridal Makeup",
+    package: "",
+    venue: "Decadence Hair & Beauty",
+  },
+  {
+    icon: <BlueIcon />,
+    id: "#A-XAYKXB",
+    customer: {
+      name: "Jenny Wilson",
+      phone: "+91 996 6372 6386",
+      avatar: "/assets/png/Wadewarren.png",
+    },
+    date: "14/07/2024",
+    time: "9am - 10am",
+    status: "Not Show",
+    amount: "₹3,300.00",
+    staff: "Rohit Mehta",
+    service: "Hair Cut",
+    package: "+1",
+    venue: "Decadence Hair & Beauty",
+  },
+];
+
+const statusColors = {
+  New: "bg-[#F8F0FF] text-[#A855F7]",
+  Confirmed: "bg-[#E0F7FA] text-[#00796B]",
+  Completed: "bg-[#E7F8E8] text-[#388E3C]",
+  Canceled: "bg-[#FFEAEA] text-[#D32F2F]",
+  Expired: "bg-[#F4F4F5] text-[#808188]",
+  "Not Show": "bg-[#FFF4E5] text-[#F57C00]",
+};

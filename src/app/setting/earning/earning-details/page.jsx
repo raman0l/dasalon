@@ -1,4 +1,4 @@
-import EarningDetails from "@/components/pages/setting/EarningDetails";
+import EarningDetails from "@/components/pages/home/setting/EarningDetails";
 import React from "react";
 
 function page() {

@@ -1,15 +1,20 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { LogoIcon, MailIcon, ShopingCartIcon, EyeIcon } from "../helper/Icon";
-import Heading from "../comman/Heading";
-import Pragraph from "../comman/Pragraph";
+import {
+  LogoIcon,
+  MailIcon,
+  ShopingCartIcon,
+  EyeIcon,
+} from "../../../helper/Icon";
+import Heading from "../../../comman/Heading";
+import Pragraph from "../../../comman/Pragraph";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "../ui/input-otp";
+} from "../../../ui/input-otp";
 
 export default function ForgotPassword() {
   const [step, setStep] = useState(1);

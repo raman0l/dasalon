@@ -39,8 +39,7 @@ import {
 } from "@/components/helper/Icon";
 import { CriticalTaskData } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
-import Registered from "../../../comman/Registered";
-import AddNewVisitReport from "../../../comman/AddNewVisitReport";
+import Registered from "./Registered";
 
 export default function CriticalTask() {
   const [statusFilter, setStatusFilter] = useState(undefined); // undefined for All
@@ -242,7 +241,6 @@ export default function CriticalTask() {
                             <ViewIcon />
                             View as partner
                           </div>
-                          <AddNewVisitReport />
                         </DropdownMenuItem>
 
                         <DropdownMenuItem

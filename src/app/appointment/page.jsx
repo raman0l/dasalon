@@ -1,4 +1,4 @@
-import AppointmentPage from "@/components/pages/appointment/Appointment";
+import AppointmentPage from "@/components/pages/home/appointment/Appointment";
 import React from "react";
 
 function page() {

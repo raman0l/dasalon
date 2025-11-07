@@ -1,4 +1,4 @@
-import BAProfiles from "@/components/pages/setting/BAProfiles";
+import BAProfiles from "@/components/pages/home/setting/BAProfiles";
 import React from "react";
 
 function page() {

@@ -10,7 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../ui/tooltip";
-import UserSettings from "@/components/pages/usersetting/UserSettings";
+import UserSettings from "@/components/pages/home/usersetting/UserSettings";
 
 export default function Navbar() {
   const [active, setActive] = useState(1);

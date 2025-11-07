@@ -1,4 +1,4 @@
-import Setting from "@/components/pages/setting/Setting";
+import Setting from "@/components/pages/home/setting/Setting";
 import React from "react";
 
 function page() {

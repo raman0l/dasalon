@@ -31,8 +31,8 @@ import {
 } from "@/components/helper/Helper";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import AddMember from "../../comman/AddMember";
-import MemberDetail from "../../comman/MemberDetail";
+import AddMember from "../../../comman/AddMember";
+import MemberDetail from "../../../comman/MemberDetail";
 import {
   Select,
   SelectContent,

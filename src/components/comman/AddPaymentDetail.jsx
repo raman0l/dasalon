@@ -18,7 +18,7 @@ import {
   BankDetailsIcon,
   BusinessDetailsIcon,
 } from "../helper/Icon";
-import BankDetails from "../pages/setting/BankDetails";
+import BankDetails from "../pages/home/setting/BankDetails";
 
 export default function AddAccountSheet() {
   const [open, setOpen] = useState(false);

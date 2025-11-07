@@ -1,4 +1,4 @@
-import Insights from "@/components/pages/insights/Insights";
+import Insights from "@/components/pages/home/insights/Insights";
 
 import React from "react";
 

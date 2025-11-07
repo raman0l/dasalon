@@ -1,4 +1,4 @@
-import Partner from "@/components/pages/partner/Partner";
+import Partner from "@/components/pages/home/partner/Partner";
 import React from "react";
 
 function page() {

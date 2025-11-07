@@ -1,4 +1,4 @@
-import UserSettings from "@/components/pages/usersetting/UserSettings";
+import UserSettings from "@/components/pages/home/usersetting/UserSettings";
 import React from "react";
 
 function page() {

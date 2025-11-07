@@ -1,4 +1,4 @@
-import Platform from "@/components/pages/setting/Platform";
+import Platform from "@/components/pages/home/setting/Platform";
 import React from "react";
 
 function page() {

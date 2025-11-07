@@ -2727,3 +2727,99 @@ export const Appointment3Icon = () => {
     </svg>
   );
 };
+export const PinIcon = () => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.00098 1.10156C9.45499 1.10181 10.6336 2.28133 10.6338 3.73535C10.6336 5.01842 9.71589 6.08566 8.50098 6.31934V14.4014C8.50098 14.6775 8.27712 14.9014 8.00098 14.9014C7.72483 14.9014 7.50098 14.6775 7.50098 14.4014V6.31934C6.28617 6.0855 5.3674 5.01827 5.36719 3.73535C5.3674 2.28133 6.54697 1.10181 8.00098 1.10156Z"
+        fill="#09090B"
+      />
+    </svg>
+  );
+};
+export const GreenIcon = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0.5" y="0.5" width="31" height="31" rx="15.5" fill="#E3F7E9" />
+      <rect x="0.5" y="0.5" width="31" height="31" rx="15.5" stroke="#7ACD92" />
+      <path
+        d="M22 14.3346V12.0013C22 11.2649 21.403 10.668 20.6667 10.668H11.3333C10.597 10.668 10 11.2649 10 12.0013V20.0013C10 20.7377 10.597 21.3346 11.3333 21.3346H13.6667"
+        stroke="#31A553"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.3359 13.332H22.0026"
+        stroke="#31A553"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.3531 15.6465L21.2841 17.0738C21.7643 17.2771 21.7681 17.9566 21.2901 18.1564L20.1844 18.6185L20.0241 18.6871L21.7136 20.3511C22.0966 20.7284 22.0966 21.3401 21.7136 21.7174C21.3305 22.0946 20.7095 22.0946 20.3264 21.7174L18.6636 20.0795L18.6175 20.1876L18.1564 21.2946C17.957 21.7731 17.2781 21.7696 17.0748 21.289L15.3343 16.6667C15.0604 16.0192 15.7061 15.3726 16.3531 15.6465Z"
+        stroke="#31A553"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.3359 10.668V13.3346"
+        stroke="#31A553"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+export const BlueIcon = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="0.5" y="0.5" width="31" height="31" rx="15.5" fill="#DEEBFC" />
+      <rect x="0.5" y="0.5" width="31" height="31" rx="15.5" stroke="#5797EF" />
+      <path
+        d="M16.9103 21.7316L16.2769 16.9809C16.2327 16.6497 15.9502 16.4023 15.6161 16.4023H10.5661C10.163 16.4023 9.85204 16.7575 9.90532 17.1571L10.5153 21.7316H16.9103ZM16.9103 21.7316H19.7526"
+        stroke="#2477EA"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle
+        cx="18.5203"
+        cy="11.3093"
+        r="1.87966"
+        stroke="#2477EA"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="13.2841" cy="19.0692" r="0.85439" fill="#2477EA" />
+      <path
+        d="M18.0078 15.582L18.4419 15.582C20.1404 15.582 21.5673 16.8592 21.7548 18.5473L22.1089 21.7336"
+        stroke="#2477EA"
+        strokeWidth="1.2"
+        strokeMiterlimit="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

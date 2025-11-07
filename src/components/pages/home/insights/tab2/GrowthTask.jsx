@@ -41,8 +41,7 @@ import {
   menuItemstab2Data,
 } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
-import Registered from "../../../comman/Registered2";
-import AddNewVisitReport from "../../../comman/AddNewVisitReport";
+import Prospect from "./Prospect";
 
 export default function GrowthTask() {
   const [statusFilter, setStatusFilter] = useState(undefined);
@@ -197,7 +196,7 @@ export default function GrowthTask() {
                       className="h-6 w-6 rounded-full"
                     />
                     <span>{row.name}</span>
-                    <Registered />
+                    <Prospect />
                   </TableCell>
                   <TableCell className="py-2 px-3">{row.address}</TableCell>
                   <TableCell className="py-2 px-3">{row.health}</TableCell>
@@ -253,7 +252,6 @@ export default function GrowthTask() {
                             <ViewIcon />
                             View as partner
                           </div>
-                          <AddNewVisitReport />
                         </DropdownMenuItem>
 
                         <DropdownMenuItem

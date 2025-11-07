@@ -1,4 +1,4 @@
-import Training from "@/components/pages/training/Training";
+import Training from "@/components/pages/home/training/Training";
 import React from "react";
 
 function page() {

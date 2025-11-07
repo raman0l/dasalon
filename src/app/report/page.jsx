@@ -1,4 +1,4 @@
-import Report from "@/components/pages/Report/Report";
+import Report from "@/components/pages/home/Report/Report";
 import React from "react";
 
 function page() {
