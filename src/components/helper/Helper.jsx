@@ -603,12 +603,14 @@ export const stepsData = [
 export const namesData = [
   "Sanya Desai",
   "Tanya Sethi",
+  "Anita Desai",
   "Priya Nair",
   "Meera Sharma",
   "Ishita Bose",
 ];
 export const nameData = [
   "Neha Reddy",
+  "Priya Sharma",
   "Neha Singh",
   "Tanya Sethi",
   "Sanya Desai",

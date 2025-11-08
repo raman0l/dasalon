@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Heading from "@/components/comman/Heading";
 import Pragraph from "@/components/comman/Pragraph";
@@ -43,14 +44,18 @@ import {
 } from "@/components/ui/sheet";
 import { ClockIcon, MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import AssignPartner from "./AssignPartner2";
+import AddNewVisit from "@/components/comman/AddNewVisit";
+import AddFollowUp from "@/components/comman/AddFollowUp";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
 
 function ScheduleNewVisit() {
+  const [showAssign, setShowAssign] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [remarks, setRemarks] = useState("");
   const [status, setStatus] = useState("");
-
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -64,13 +69,6 @@ function ScheduleNewVisit() {
     });
   });
   const router = useRouter();
-
-  const handleItemClick = (path) => {
-    if (path) {
-      router.push(path); // ✅ navigate to the route
-    }
-  };
-
   const [activeItem, setActiveItem] = useState(null);
 
   const handleSelect = (e, id) => {
@@ -142,21 +140,19 @@ function ScheduleNewVisit() {
                     <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 1)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 1
                             ? "bg-[#eaccfe]"
-                            : "bg-white hover:!bg-[#eaccfe]"
+                            : "bg-white hover:bg-[#eaccfe]"
                         }`}
                       >
-                        <div className="flex items-center gap-2 ">
-                          <ViewIcon />
-                          View as partner
-                        </div>
+                        <ViewIcon />
+                        View as Partner
                       </DropdownMenuItem>
 
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 2)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 2
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -165,9 +161,10 @@ function ScheduleNewVisit() {
                         <ViewReportIcon />
                         View Report
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 3)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 3
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -175,10 +172,12 @@ function ScheduleNewVisit() {
                       >
                         <AddVisitIcon />
                         Add Visit
+                        <AddNewVisit />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 4)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 4
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -186,10 +185,12 @@ function ScheduleNewVisit() {
                       >
                         <AddFollowUpIcon />
                         Add Follow Up
+                        <AddFollowUp />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 5)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 5
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -197,10 +198,12 @@ function ScheduleNewVisit() {
                       >
                         <AddVisitIcon />
                         Add Visit Report
+                        <AddNewVisitReport />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 6)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 6
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -208,6 +211,7 @@ function ScheduleNewVisit() {
                       >
                         <AssignPartnerIcon />
                         Assign Partner
+                        <AssignPartner />
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -371,11 +375,13 @@ function ScheduleNewVisit() {
             >
               Cancel
             </Button>
+            <div></div>
             <Button
-              onClick={() => setOpen(false)}
-              className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] border-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"
+              onClick={() => setCurrentStep(0)}
+              className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] border-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer relative"
             >
               Submit
+              <AssignPartner />
             </Button>
           </SheetFooter>
         </SheetContent>

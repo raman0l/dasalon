@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Heading from "@/components/comman/Heading";
-
+import { useRouter } from "next/navigation";
 import {
   AddFollowUpIcon,
   AddVisitIcon,
@@ -37,16 +37,18 @@ import {
   RegisteredPartnerData,
 } from "@/components/helper/Helper";
 import Saidbar from "./Saidbar";
+import AddNewVisit from "@/components/comman/AddNewVisit";
+import AddFollowUp from "@/components/comman/AddFollowUp";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import AssignPartner from "@/components/comman/AssignPartner";
 
 export function Registered() {
   const [statusFilter, setStatusFilter] = useState("");
-
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [date, setDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-
   const [activeRow, setActiveRow] = useState(null);
-
   const tabData = RegisteredPartnerData.filter((row) => {
     const matchesStatus = statusFilter
       ? row.subscription === statusFilter
@@ -62,6 +64,10 @@ export function Registered() {
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
   return (
     <div>
@@ -201,21 +207,19 @@ export function Registered() {
                         <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 1)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                               activeItem === 1
                                 ? "bg-[#eaccfe]"
-                                : "bg-white hover:!bg-[#eaccfe]"
+                                : "bg-white hover:bg-[#eaccfe]"
                             }`}
                           >
-                            <div className="flex items-center gap-2 ">
-                              <ViewIcon />
-                              View as partner
-                            </div>
+                            <ViewIcon />
+                            View as Partner
                           </DropdownMenuItem>
 
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 2)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                               activeItem === 2
                                 ? "bg-[#eaccfe]"
                                 : "bg-white hover:bg-[#eaccfe]"
@@ -224,9 +228,10 @@ export function Registered() {
                             <ViewReportIcon />
                             View Report
                           </DropdownMenuItem>
+
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 3)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                               activeItem === 3
                                 ? "bg-[#eaccfe]"
                                 : "bg-white hover:bg-[#eaccfe]"
@@ -234,10 +239,12 @@ export function Registered() {
                           >
                             <AddVisitIcon />
                             Add Visit
+                            <AddNewVisit />
                           </DropdownMenuItem>
+
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 4)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                               activeItem === 4
                                 ? "bg-[#eaccfe]"
                                 : "bg-white hover:bg-[#eaccfe]"
@@ -245,10 +252,12 @@ export function Registered() {
                           >
                             <AddFollowUpIcon />
                             Add Follow Up
+                            <AddFollowUp />
                           </DropdownMenuItem>
+
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 5)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                               activeItem === 5
                                 ? "bg-[#eaccfe]"
                                 : "bg-white hover:bg-[#eaccfe]"
@@ -256,10 +265,12 @@ export function Registered() {
                           >
                             <AddVisitIcon />
                             Add Visit Report
+                            <AddNewVisitReport />
                           </DropdownMenuItem>
+
                           <DropdownMenuItem
                             onSelect={(e) => handleSelect(e, 6)}
-                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                            className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                               activeItem === 6
                                 ? "bg-[#eaccfe]"
                                 : "bg-white hover:bg-[#eaccfe]"
@@ -267,6 +278,7 @@ export function Registered() {
                           >
                             <AssignPartnerIcon />
                             Assign Partner
+                            <AssignPartner />
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>

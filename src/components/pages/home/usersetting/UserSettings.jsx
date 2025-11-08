@@ -33,7 +33,7 @@ export default function UserSettings({ label, placeholder }) {
   };
 
   return (
-    <div className="min-h-screen text-white px-6 py-10 max-w-[543px] mx-auto">
+    <div className="h-screen text-white px-6 py-10 max-w-[543px] m-auto">
       {/* Breadcrumb */}
       <div className="p-6 flex gap-1">
         <Heading
@@ -85,10 +85,10 @@ export default function UserSettings({ label, placeholder }) {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="bg-transparent lg:mb-8 md:mb-5 mb-3 p-0 flex lg:gap-10 gap-2 shadow-none border-b-1  border-[#E4E7EB] w-full rounded-none">
+        <TabsList className="bg-transparent lg:mb-8 md:mb-5 mb-3 p-0 flex gap-0  shadow-none border-b-1 border-[#E4E7EB] w-full rounded-none !overflow-hidden">
           <TabsTrigger
             value="personal"
-            className={`pb-3 p-0 text-xs font-semibold !shadow-none border-b-2 rounded-none  ${
+            className={`pb-3 text-xs font-semibold !shadow-none border-b-2 px-30 border-b-white rounded-none w-[227px]  ${
               activeTab === "personal"
                 ? " border-b-[#A855F7] !text-[#030712]"
                 : "text-[#808188]"
@@ -100,7 +100,7 @@ export default function UserSettings({ label, placeholder }) {
 
           <TabsTrigger
             value="password"
-            className={`p-0 text-xs font-semibold !shadow-none border-b-2 rounded-none  ${
+            className={` text-xs font-semibold !shadow-none border-b-2 px-30 border-white rounded-none w-[227px]  ${
               activeTab === "password"
                 ? " border-b-[#A855F7] !text-[#030712]"
                 : "text-[#808188]"
@@ -112,7 +112,7 @@ export default function UserSettings({ label, placeholder }) {
 
         {/* Personal Details Tab */}
         <TabsContent value="personal">
-          <form className="flex flex-col lg:gap-5 gap-3">
+          <form className="flex flex-col lg:gap-5 gap-3 overflow-hidden max-w-[543px]">
             {/* Display Name */}
             <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-3">
@@ -206,7 +206,7 @@ export default function UserSettings({ label, placeholder }) {
 
         {/* Change Password Tab */}
         <TabsContent value="password">
-          <form className="space-y-6 max-w-xl">
+          <form className="space-y-6 overflow-hidden max-w-[543px]">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col gap-3">
                 <label className="text-sm font-semibold text-[#030712]">

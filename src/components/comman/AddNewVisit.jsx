@@ -83,7 +83,7 @@ function AddNewVisit() {
         <SheetTrigger asChild>
           <Button
             className={
-              "!P-0 bg-transparent absolute w-full hover:bg-transparent cursor-pointer "
+              "!P-0 bg-transparent absolute w-full hover:bg-transparent cursor-pointer"
             }
           ></Button>
         </SheetTrigger>

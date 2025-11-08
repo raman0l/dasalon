@@ -163,13 +163,6 @@ function AddNewVisitReport() {
           <AlertDialogHeader>
             <div className="flex items-center justify-between gap-2 lg:py-5 md:py-4 py-2 lg:px-4 px-3  border-b border-[#8081888a]">
               <AlertDialogTitle>Add New Visit Report</AlertDialogTitle>
-              <AlertDialogCancel
-                className={
-                  "border-none bg-white p-0 hover:bg-transparent shadow-none rotate-45 text-3xl hover:text-gray-300 cursor-pointer"
-                }
-              >
-                +
-              </AlertDialogCancel>
             </div>
 
             <div

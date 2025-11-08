@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-[#F2F2F2] max-w-14 flex flex-col gap-10 justify-between overflow-x-hidden h-screen scrollbar-none fixed overflow-y-auto z-20">
+    <div className="bg-[#F2F2F2] max-w-14 flex flex-col gap-10 justify-between overflow-x-hidden h-full scrollbar-none fixed overflow-y-auto z-20">
       <div>
         <div>
           <div className="hidden md:flex gap-6">
@@ -88,55 +88,54 @@ export default function Navbar() {
             <MenuIcon />
           </button>
         </div>
-
-        {open && (
-          <div className="md:hidden  flex gap-6 h-screen">
-            <div className="flex flex-col">
-              <div className="hover:border-[#B751FB] border-[#F2F2F2] border-l-3 hover:bg-white flex justify-center items-center duration-400 ease-in-out">
-                <Link className="p-3" href="/">
-                  <Image
-                    className="min-w-8 bg-white rounded-full mx-auto"
-                    src={"/assets/png/girl-logo.png"}
-                    alt="girl-logo"
-                    width={32}
-                    height={32}
-                  />
-                </Link>
-              </div>
-              <div className="border-[#DCE0E5] border-1 w-[70%] justify-center flex items-center mx-auto my-3"></div>
-              <div className="hover:border-[#B751FB] border-[#F2F2F2] border-l-3 hover:bg-white flex justify-center items-center duration-400 ease-in-out">
-                <Link className="p-3" href="/">
-                  <Image
-                    className="min-w-8 bg-white rounded-full mx-auto"
-                    src={"/assets/png/salon-1.png"}
-                    alt="salon-1"
-                    width={32}
-                    height={32}
-                  />
-                </Link>
-              </div>
-
-              <div className="border-[#DCE0E5] border-1 w-[70%] justify-center flex items-center mx-auto my-3 cursor-pointer"></div>
-              {navItemsData.map((item) => {
-                return (
-                  <Link
-                    href={"/"}
-                    key={item.id}
-                    onClick={() => setActive(item.id)}
-                    className={`p-4 transition cursor-pointer  ${
-                      active === item.id
-                        ? "border-l-3 border-[#B751FB] text-[#B751FB] bg-white"
-                        : "text-[#9594A0] cursor-pointer"
-                    }`}
-                  >
-                    {item.icon}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
+      {open && (
+        <div className="md:hidden  flex gap-6 h-screen">
+          <div className="flex flex-col">
+            <div className="hover:border-[#B751FB] border-[#F2F2F2] border-l-3 hover:bg-white flex justify-center items-center duration-400 ease-in-out">
+              <Link className="p-3" href="/">
+                <Image
+                  className="min-w-8 bg-white rounded-full mx-auto"
+                  src={"/assets/png/girl-logo.png"}
+                  alt="girl-logo"
+                  width={32}
+                  height={32}
+                />
+              </Link>
+            </div>
+            <div className="border-[#DCE0E5] border-1 w-[70%] justify-center flex items-center mx-auto my-3"></div>
+            <div className="hover:border-[#B751FB] border-[#F2F2F2] border-l-3 hover:bg-white flex justify-center items-center duration-400 ease-in-out">
+              <Link className="p-3" href="/">
+                <Image
+                  className="min-w-8 bg-white rounded-full mx-auto"
+                  src={"/assets/png/salon-1.png"}
+                  alt="salon-1"
+                  width={32}
+                  height={32}
+                />
+              </Link>
+            </div>
+
+            <div className="border-[#DCE0E5] border-1 w-[70%] justify-center flex items-center mx-auto my-3 cursor-pointer"></div>
+            {navItemsData.map((item) => {
+              return (
+                <Link
+                  href={item.path}
+                  onClick={() => setActive(item.id)}
+                  key={item.id}
+                  className={`p-4 transition cursor-pointer  ${
+                    active === item.id
+                      ? "border-l-3 border-[#B751FB] text-[#B751FB] bg-white"
+                      : "text-[#9594A0] cursor-pointer"
+                  }`}
+                >
+                  {item.icon}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
       <div className="rounded-full mx-auto max-w-8 pb-5">
         <Link href="/user-setting">
           <Image

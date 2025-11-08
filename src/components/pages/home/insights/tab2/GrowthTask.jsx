@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -42,6 +42,10 @@ import {
 } from "@/components/helper/Helper";
 import { Calendar } from "@/components/ui/calendar";
 import Prospect from "./Prospect";
+import AddNewVisit from "@/components/comman/AddNewVisit";
+import AddFollowUp from "@/components/comman/AddFollowUp";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import AssignPartner from "@/components/comman/AssignPartner";
 
 export default function GrowthTask() {
   const [statusFilter, setStatusFilter] = useState(undefined);
@@ -51,7 +55,7 @@ export default function GrowthTask() {
   const [date1, setDate1] = useState(null);
   const [showCalendar1, setShowCalendar1] = useState(false);
   const [activeRow, setActiveRow] = useState(null);
-
+  const router = useRouter();
   const filteredData = GrowthTaskData.filter((row) => {
     const matchesStatus = statusFilter
       ? row.subscription === statusFilter
@@ -67,6 +71,10 @@ export default function GrowthTask() {
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
   return (
     <div className="w-full lg:px-6 md:px-5 px-4">
@@ -242,21 +250,19 @@ export default function GrowthTask() {
                       <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 1)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 1
                               ? "bg-[#eaccfe]"
-                              : "bg-white hover:!bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
                           }`}
                         >
-                          <div className="flex items-center gap-2 ">
-                            <ViewIcon />
-                            View as partner
-                          </div>
+                          <ViewIcon />
+                          View as Partner
                         </DropdownMenuItem>
 
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 2)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 2
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -265,9 +271,10 @@ export default function GrowthTask() {
                           <ViewReportIcon />
                           View Report
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 3)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 3
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -275,10 +282,12 @@ export default function GrowthTask() {
                         >
                           <AddVisitIcon />
                           Add Visit
+                          <AddNewVisit />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 4)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                             activeItem === 4
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -286,10 +295,12 @@ export default function GrowthTask() {
                         >
                           <AddFollowUpIcon />
                           Add Follow Up
+                          <AddFollowUp />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 5)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 5
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -297,10 +308,12 @@ export default function GrowthTask() {
                         >
                           <AddVisitIcon />
                           Add Visit Report
+                          <AddNewVisitReport />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 6)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                             activeItem === 6
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -308,6 +321,7 @@ export default function GrowthTask() {
                         >
                           <AssignPartnerIcon />
                           Assign Partner
+                          <AssignPartner />
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>

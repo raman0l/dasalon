@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import Pragraph from "@/components/comman/Pragraph";
 import {
   contactsData,
@@ -55,11 +55,14 @@ import Heading from "@/components/comman/Heading";
 import FollowUp from "./FollowUp";
 import AddNewVisitReport from "./AddNewVisitReport";
 import NewVisit from "@/components/comman/NewVisit";
+import AddNewVisit from "./AddNewVisit";
+import AddFollowUp from "./AddFollowUp";
+import AssignPartner from "./AssignPartner";
 
 export default function Registered() {
   const getDisplayName = (value, data) =>
     data.find((item) => item.toLowerCase() === value) || "";
-
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("manage");
 
   const dates = Array.from({ length: 7 }, (_, i) => {
@@ -89,6 +92,10 @@ export default function Registered() {
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
 
   return (
@@ -167,22 +174,19 @@ export default function Registered() {
                     <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 1)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 1
                             ? "bg-[#eaccfe]"
-                            : "bg-white hover:!bg-[#eaccfe]"
+                            : "bg-white hover:bg-[#eaccfe]"
                         }`}
                       >
-                        <div className="flex items-center gap-2 ">
-                          <ViewIcon />
-                          View as partner
-                        </div>
-                        <AddNewVisitReport />
+                        <ViewIcon />
+                        View as Partner
                       </DropdownMenuItem>
 
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 2)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 2
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -191,9 +195,10 @@ export default function Registered() {
                         <ViewReportIcon />
                         View Report
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 3)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 3
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -201,10 +206,12 @@ export default function Registered() {
                       >
                         <AddVisitIcon />
                         Add Visit
+                        <AddNewVisit />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 4)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 4
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -212,10 +219,12 @@ export default function Registered() {
                       >
                         <AddFollowUpIcon />
                         Add Follow Up
+                        <AddFollowUp />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 5)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 5
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -223,10 +232,12 @@ export default function Registered() {
                       >
                         <AddVisitIcon />
                         Add Visit Report
+                        <AddNewVisitReport />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 6)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 6
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -234,6 +245,7 @@ export default function Registered() {
                       >
                         <AssignPartnerIcon />
                         Assign Partner
+                        <AssignPartner />
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

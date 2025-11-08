@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import Pragraph from "@/components/comman/Pragraph";
 import {
   contactsData,
@@ -46,13 +46,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
 import { ClockIcon, MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Heading from "@/components/comman/Heading";
 import ScheduleNewVisit from "./ScheduleNewVisit";
 import ScheduleFollowUp from "./ScheduleFollowUp";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import AddNewVisit from "@/components/comman/AddNewVisit";
+import AddFollowUp from "@/components/comman/AddFollowUp";
+import AssignPartner from "@/components/comman/AssignPartner";
 
 export default function Prospect() {
   const getDisplayName = (value, data) =>
@@ -74,7 +77,7 @@ export default function Prospect() {
   const [date, setDate] = useState(null);
   const [followUpDate, setFollowUpDate] = useState(null);
   const [open, setOpen] = useState(false);
-
+  const router = useRouter();
   const handleAddDate = () => {
     setDate(new Date().toLocaleDateString());
   };
@@ -87,6 +90,10 @@ export default function Prospect() {
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
 
   return (
@@ -165,21 +172,19 @@ export default function Prospect() {
                     <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 1)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 1
                             ? "bg-[#eaccfe]"
-                            : "bg-white hover:!bg-[#eaccfe]"
+                            : "bg-white hover:bg-[#eaccfe]"
                         }`}
                       >
-                        <div className="flex items-center gap-2 ">
-                          <ViewIcon />
-                          View as partner
-                        </div>
+                        <ViewIcon />
+                        View as Partner
                       </DropdownMenuItem>
 
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 2)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 2
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -188,9 +193,10 @@ export default function Prospect() {
                         <ViewReportIcon />
                         View Report
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 3)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 3
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -198,10 +204,12 @@ export default function Prospect() {
                       >
                         <AddVisitIcon />
                         Add Visit
+                        <AddNewVisit />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 4)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 4
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -209,10 +217,12 @@ export default function Prospect() {
                       >
                         <AddFollowUpIcon />
                         Add Follow Up
+                        <AddFollowUp />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 5)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 5
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -220,10 +230,12 @@ export default function Prospect() {
                       >
                         <AddVisitIcon />
                         Add Visit Report
+                        <AddNewVisitReport />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 6)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 6
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -231,6 +243,7 @@ export default function Prospect() {
                       >
                         <AssignPartnerIcon />
                         Assign Partner
+                        <AssignPartner />
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -500,6 +513,7 @@ export default function Prospect() {
               onClick={() => setCurrentStep(3)}
               className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] border-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer relative"
             >
+              <AddNewVisitReport />
               Add Visit Report
             </Button>
           </SheetFooter>

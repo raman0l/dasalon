@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import Pragraph from "@/components/comman/Pragraph";
 import {
   contactsData,
@@ -41,19 +41,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
 import { MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import Heading from "@/components/comman/Heading";
 import AddNewVisit from "@/components/comman/AddNewVisit";
 import AddFollowUp from "@/components/comman/AddFollowUp";
+import VisitReport from "@/components/comman/VisitReport";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import AssignPartner from "@/components/comman/AssignPartner";
 function Saidbar() {
   const getDisplayName = (value, data) =>
     data.find((item) => item.toLowerCase() === value) || "";
 
   const [activeTab, setActiveTab] = useState("critical");
-
+  const router = useRouter();
   const dates = Array.from({ length: 7 }, (_, i) => {
     const d = new Date();
     d.setDate(d.getDate() + i);
@@ -81,6 +83,10 @@ function Saidbar() {
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
 
   return (
@@ -158,18 +164,19 @@ function Saidbar() {
                     <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 1)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 1
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
                         }`}
                       >
-                        <ViewIcon /> View as partner
+                        <ViewIcon />
+                        View as Partner
                       </DropdownMenuItem>
 
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 2)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 2
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -178,9 +185,10 @@ function Saidbar() {
                         <ViewReportIcon />
                         View Report
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 3)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 3
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -188,10 +196,12 @@ function Saidbar() {
                       >
                         <AddVisitIcon />
                         Add Visit
+                        <AddNewVisit />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 4)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 4
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -199,10 +209,12 @@ function Saidbar() {
                       >
                         <AddFollowUpIcon />
                         Add Follow Up
+                        <AddFollowUp />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 5)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                           activeItem === 5
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -210,10 +222,12 @@ function Saidbar() {
                       >
                         <AddVisitIcon />
                         Add Visit Report
+                        <AddNewVisitReport />
                       </DropdownMenuItem>
+
                       <DropdownMenuItem
                         onSelect={(e) => handleSelect(e, 6)}
-                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                        className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                           activeItem === 6
                             ? "bg-[#eaccfe]"
                             : "bg-white hover:bg-[#eaccfe]"
@@ -221,6 +235,7 @@ function Saidbar() {
                       >
                         <AssignPartnerIcon />
                         Assign Partner
+                        <AssignPartner />
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -471,6 +486,8 @@ function Saidbar() {
               onClick={() => setCurrentStep(3)}
               className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] border-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer relative"
             >
+              {" "}
+              <VisitReport />
               Add Visit Report
             </Button>
           </SheetFooter>

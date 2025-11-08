@@ -78,9 +78,9 @@ function AddFollowUp() {
         {/* Trigger Button */}
         <SheetTrigger asChild>
           <Button
-            className={
-              "!P-0 bg-transparent absolute top-0 hover:bg-transparent cursor-pointer w-full"
-            }
+            variant="outline"
+            onClick={() => setOpen(true)}
+            className="!p-0 w-[400px] left-0 top-0 absolute bg-transparent hover:bg-transparent text-[#B751FB] text-sm font-semibold hover:border-none border-none"
           ></Button>
         </SheetTrigger>
 

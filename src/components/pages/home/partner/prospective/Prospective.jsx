@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Heading from "@/components/comman/Heading";
-
+import { useRouter } from "next/navigation";
 import {
   AddFollowUpIcon,
   AddVisitIcon,
@@ -10,7 +10,6 @@ import {
   ViewIcon,
   ViewReportIcon,
 } from "@/components/helper/Icon";
-
 import { MoreVerticalIcon, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
@@ -36,15 +35,18 @@ import {
   RegisteredPartnerData,
 } from "@/components/helper/Helper";
 import Prospect from "./Prospect";
+import AddNewVisit from "@/components/comman/AddNewVisit";
+import AddFollowUp from "@/components/comman/AddFollowUp";
+import AddNewVisitReport from "@/components/comman/AddNewVisitReport";
+import AssignPartner from "@/components/comman/AssignPartner";
 function Prospective() {
   const [activeTab, setActiveTab] = useState("tab1");
   const [statusFilter, setStatusFilter] = useState(undefined);
   const [searchTerm, setSearchTerm] = useState("");
   const [date, setDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-
+  const router = useRouter();
   const [activeRow, setActiveRow] = useState(null);
-
   const tabData = RegisteredPartnerData.filter((row) => {
     const matchesStatus = statusFilter
       ? row.subscription === statusFilter
@@ -56,11 +58,15 @@ function Prospective() {
   });
 
   const [activeItem, setActiveItem] = useState(null);
-
   const handleSelect = (e, id) => {
     e.preventDefault();
     setActiveItem(id);
+
+    if (id === 1) router.push("/partner");
+    if (id === 2) router.push("/report");
+    if (id === 6) setOpenAssign(true);
   };
+
   return (
     <div className="w-full lg:px-6 md:px-5 px-4">
       {/* Filter Section */}
@@ -196,21 +202,19 @@ function Prospective() {
                       <DropdownMenuContent className="w-50 bg-white border border-[#808188] p-0 mr-10">
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 1)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 1
                               ? "bg-[#eaccfe]"
-                              : "bg-white hover:!bg-[#eaccfe]"
+                              : "bg-white hover:bg-[#eaccfe]"
                           }`}
                         >
-                          <div className="flex items-center gap-2 ">
-                            <ViewIcon />
-                            View as partner
-                          </div>
+                          <ViewIcon />
+                          View as Partner
                         </DropdownMenuItem>
 
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 2)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 2
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -219,9 +223,10 @@ function Prospective() {
                           <ViewReportIcon />
                           View Report
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 3)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 3
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -229,10 +234,12 @@ function Prospective() {
                         >
                           <AddVisitIcon />
                           Add Visit
+                          <AddNewVisit />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 4)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                             activeItem === 4
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -240,10 +247,12 @@ function Prospective() {
                         >
                           <AddFollowUpIcon />
                           Add Follow Up
+                          <AddFollowUp />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 5)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold ${
                             activeItem === 5
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -251,10 +260,12 @@ function Prospective() {
                         >
                           <AddVisitIcon />
                           Add Visit Report
+                          <AddNewVisitReport />
                         </DropdownMenuItem>
+
                         <DropdownMenuItem
                           onSelect={(e) => handleSelect(e, 6)}
-                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] ${
+                          className={`flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-semibold relative ${
                             activeItem === 6
                               ? "bg-[#eaccfe]"
                               : "bg-white hover:bg-[#eaccfe]"
@@ -262,6 +273,7 @@ function Prospective() {
                         >
                           <AssignPartnerIcon />
                           Assign Partner
+                          <AssignPartner />
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
