@@ -93,7 +93,7 @@ function VisitReport() {
     year: "numeric",
   });
 
-  const totalSteps = 6;
+  const totalSteps = 7;
 
   const handleSubmit = () => {
     console.log("Submit final report");
@@ -108,7 +108,7 @@ function VisitReport() {
   };
 
   const prevStep = () => {
-    if (activeTab > 0) {
+    if (activeTab > 1) {
       setActiveTab((prev) => prev - 1);
     }
   };
@@ -135,16 +135,16 @@ function VisitReport() {
         </AlertDialogTrigger>
         <AlertDialogContent className={"!p-0 min-[1070px]:!max-w-[1038px]"}>
           <AlertDialogHeader className={""}>
-            <div className="flex items-center justify-between gap-2 lg:py-5 md:py-4 py-2 lg:px-4 px-3  border-b border-[#8081888a]">
+            <div className="flex items-center justify-between gap-2 lg:py-4 py-2 lg:px-4 px-3  border-b border-[#8081888a]">
               <AlertDialogTitle>Visit Report</AlertDialogTitle>
             </div>
 
             <div
               id="radix-_r_4_"
               data-slot="alert-dialog-description"
-              className="text-muted-foreground text-sm p-0 flex md:flex-row flex-col  max-[768px]:overflow-y-auto h-screen max-h-[70vh] scrollbar-w-5 custom-scrollbar"
+              className="text-muted-foreground text-sm p-0 flex md:flex-row flex-col  max-[768px]:overflow-y-auto h-screen sm:max-h-[70vh] max-[520px]:max-h-[60vh]  max-[320px]:max-h-[50vh]  scrollbar-w-5 custom-scrollbar"
             >
-              <div className="lg:min-w-[300px] min-w-[260px] bg-[#F9FAFB] md:overflow-y-auto h-screen max-h-[70vh] scrollbar-h-2 scrollbar-none md:pb-5 pb-2">
+              <div className="lg:min-w-[300px] min-w-[260px] bg-[#F9FAFB] md:overflow-y-auto scrollbar-h-2 scrollbar-none md:pb-5 pb-2">
                 <div className="flex gap-2 lg:px-6 md:px-4 px-3 lg:pt-5 md:pt-4 pt-3">
                   <Image
                     className="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] object-cover rounded-md"
@@ -842,11 +842,8 @@ function VisitReport() {
               </div>
             </div>
           </AlertDialogHeader>
-          <AlertDialogFooter
-            className={
-              "lg:py-5 md:py-4 py-3 lg:px-4 px-3  border-t border-[#8081888a]"
-            }
-          >
+          <AlertDialogFooter className="lg:py-4 py-2 lg:px-4 px-3 border-t border-[#8081888a] flex justify-end gap-2">
+            {/* Cancel Button */}
             <AlertDialogCancel
               className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] border border-[#E4E7EB] rounded-md hover:shadow-lg duration-300 ease-in-out cursor-pointer"
               onClick={prevStep}
@@ -855,29 +852,24 @@ function VisitReport() {
               Cancel
             </AlertDialogCancel>
 
-            {activeTab === 0 ? (
+            {/* 👇 Button Logic */}
+            {activeTab < 6 ? (
+              // 🟣 Step 1 to 6 → Next Button
               <button
                 type="button"
                 onClick={() => {
-                  handleSubmit();
+                  handleSubmit(); // optional submit each step
                   nextStep();
                 }}
-                className="lg:px-4 px-3 lg:!py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md bg-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"
-              >
-                Submit Report
-              </button>
-            ) : activeTab < totalSteps ? (
-              <button
-                type="button"
-                onClick={nextStep}
                 className="lg:!px-4 !px-3 lg:!py-[10px] md:!py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] text-white hover:!shadow-lg duration-300 ease-in-out cursor-pointer"
               >
                 Next
               </button>
             ) : (
+              // ✅ Step 7 → Submit Report Button
               <AlertDialogAction
                 onClick={handleSubmit}
-                className="lg:px-4 px-3 lg:!py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md bg-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"
+                className="lg:px-4 px-3 lg:!py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"
               >
                 Submit Report
               </AlertDialogAction>

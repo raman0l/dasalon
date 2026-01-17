@@ -88,7 +88,7 @@ function FollowUp() {
         </SheetTrigger>
 
         {/* Sheet Content */}
-        <SheetContent className="md:w-[400px] w-[320px] overflow-auto bg-white gap-0">
+        <SheetContent className="overflow-auto bg-white gap-0">
           {/* Header */}
           <SheetHeader className="border-b border-[#E4E7EB] lg:p-6 md:p-4 p-3">
             <SheetTitle className="flex gap-2 justify-between items-center">

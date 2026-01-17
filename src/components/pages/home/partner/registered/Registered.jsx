@@ -44,6 +44,7 @@ import AssignPartner from "@/components/comman/AssignPartner";
 
 export function Registered() {
   const [statusFilter, setStatusFilter] = useState("");
+  const [date1, setDate1] = useState(null);
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [date, setDate] = useState(null);
@@ -77,20 +78,20 @@ export function Registered() {
           <div className="relative lg:w-[290px] md:w-[230px] w-[160px]">
             <Search
               className="absolute right-3 top-[18px] -translate-y-1/2 text-[#D9DDE3]"
-              size={18}
+              size={15}
             />
             <Input
               type="text"
               placeholder="Search..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full lg:px-4 md:px-3 px-2 lg:py-[10px] py-[6px] border border-[#D9DDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B751FB] placeholder:text-sm"
+              className="w-full lg:px-4 md:px-3 px-2 lg:py-[10px] py-[5px] border border-[#D9DDE3] rounded-lg focus:border-[#B751FB] focus:ring-2 focus:ring-[#B751FB]/50 placeholder:text-sm transition-all"
             />
           </div>
           <div className="relative inline-block">
             <div
               onClick={() => setShowCalendar((prev) => !prev)}
-              className="flex items-center gap-2 border border-[#A8A9AE] rounded-md lg:px-4 md:px-3 px-2 lg:py-[10px] py-[6px] cursor-pointer"
+              className="flex items-center gap-2 border border-[#A8A9AE] rounded-md lg:px-4 md:px-3 px-2  py-2 cursor-pointer hover:border-[#B751FB]"
             >
               <FilterIcon className="h-4 w-4 text-[#A8A9AE]" />
               <span className="text-sm text-[#A8A9AE]">
@@ -162,7 +163,7 @@ export function Registered() {
                         : "bg-white hover:bg-[#EBD9FF] hover:border-l-[#b751fb]"
                     }`}
                   >
-                    <TableCell className="inline-flex items-center gap-2 py-2 px-3 cursor-pointer w-[190px]">
+                    <TableCell className="inline-flex items-center gap-2 mb-2 cursor-pointer w-[190px]">
                       <Image
                         src={row.img}
                         alt="salon"

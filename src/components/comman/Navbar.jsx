@@ -90,7 +90,7 @@ export default function Navbar() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden  flex gap-6 h-screen">
+        <div className="md:hidden  flex gap-6 ">
           <div className="flex flex-col">
             <div className="hover:border-[#B751FB] border-[#F2F2F2] border-l-3 hover:bg-white flex justify-center items-center duration-400 ease-in-out">
               <Link className="p-3" href="/">

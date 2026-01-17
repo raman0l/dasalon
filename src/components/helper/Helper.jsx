@@ -82,7 +82,7 @@ export const navItemsData = [
     id: 2,
     name: "Planner",
     icon: <CalenderIcon />,
-    path: "/",
+    path: "/planner",
   },
   { id: 3, name: "Insights", icon: <SearchIcon />, path: "/insights" },
   { id: 4, name: "Partner", icon: <PatnershipIcon />, path: "/partner" },

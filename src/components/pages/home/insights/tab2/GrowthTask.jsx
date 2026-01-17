@@ -107,13 +107,13 @@ export default function GrowthTask() {
               placeholder="Search..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full lg:px-4 md:px-3 px-2 lg:py-[10px] py-[6px] border border-[#D9DDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B751FB] placeholder:text-sm"
+              className="w-full lg:px-4 md:px-3 px-2 py-[6px] border border-[#D9DDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B751FB] placeholder:text-sm"
             />
           </div>
           <div className="relative inline-block">
             <div
               onClick={() => setShowCalendar((prev) => !prev)}
-              className="flex items-center gap-2 border border-[#A8A9AE] rounded-md lg:px-4 md:px-3 px-2 lg:py-[10px] py-[6px] cursor-pointer"
+              className="flex items-center gap-2 border border-[#A8A9AE] hover:ring-[#B751FB] rounded-md lg:px-4 md:px-3 px-2 py-2 cursor-pointer"
             >
               <FilterIcon className="h-4 w-4 text-[#A8A9AE]" />
               <span className="text-sm text-[#A8A9AE]">
@@ -195,7 +195,7 @@ export default function GrowthTask() {
                       : "bg-white hover:bg-[#EBD9FF] hover:border-l-[#b751fb]"
                   }`}
                 >
-                  <TableCell className="inline-flex items-center gap-2 py-2 px-3 cursor-pointer w-[190px]">
+                  <TableCell className="inline-flex items-center gap-2 mb-2 cursor-pointer w-[190px]">
                     <Image
                       src={row.img}
                       alt="salon"

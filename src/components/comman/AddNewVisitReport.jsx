@@ -105,7 +105,7 @@ function AddNewVisitReport() {
     year: "numeric",
   });
 
-  const totalSteps = 4;
+  const totalSteps = 5;
 
   const handleSubmit = () => {
     console.log("Submit final report");
@@ -168,9 +168,9 @@ function AddNewVisitReport() {
             <div
               id="radix-_r_4_"
               data-slot="alert-dialog-description"
-              className="text-muted-foreground text-sm p-0 flex sm:flex-row flex-col  max-[768px]:overflow-y-auto h-screen max-h-[70vh] scrollbar-w-5 custom-scrollbar"
+              className="text-muted-foreground text-sm p-0 flex sm:flex-row flex-col  max-[768px]:overflow-y-auto h-screen sm:max-h-[70vh] max-[520px]:max-h-[60vh]  max-[320px]:max-h-[50vh] scrollbar-w-5 custom-scrollbar"
             >
-              <div className="md:min-w-[300px] min-w-[260px] bg-[#F9FAFB] md:overflow-y-auto h-screen max-h-[70vh] scrollbar-h-2 scrollbar-none ">
+              <div className="md:min-w-[300px] min-w-[260px] bg-[#F9FAFB] md:overflow-y-auto scrollbar-h-2 scrollbar-none ">
                 <div className="flex gap-2 lg:px-6 md:px-4 px-3 lg:pt-5 md:pt-4 pt-3">
                   <Image
                     className="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] object-cover rounded-md"
@@ -788,11 +788,8 @@ function AddNewVisitReport() {
               </div>
             </div>
           </AlertDialogHeader>
-          <AlertDialogFooter
-            className={
-              "lg:py-5 md:py-4 py-3 lg:px-4 px-3  border-t border-[#8081888a]"
-            }
-          >
+          <AlertDialogFooter className="lg:py-5 md:py-4 py-3 lg:px-4 px-3 border-t border-[#8081888a] flex justify-end gap-2">
+            {/* Cancel Button */}
             <AlertDialogCancel
               className="lg:px-4 px-3 lg:py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] text-[#030712] border border-[#E4E7EB] rounded-md hover:shadow-lg duration-300 ease-in-out cursor-pointer"
               onClick={prevStep}
@@ -801,26 +798,21 @@ function AddNewVisitReport() {
               Cancel
             </AlertDialogCancel>
 
-            {activeTab === 0 ? (
+            {/* 👇 Buttons Logic */}
+            {activeTab < 4 ? (
+              // 🟣 Step 0–5 → Next Button
               <button
                 type="button"
                 onClick={() => {
-                  handleSubmit();
+                  handleSubmit(); // optional partial submit
                   nextStep();
                 }}
                 className="lg:px-4 px-3 lg:!py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md bg-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"
               >
                 Next
               </button>
-            ) : activeTab < totalSteps ? (
-              <button
-                type="button"
-                onClick={nextStep}
-                className="lg:!px-4 !px-3 lg:!py-[10px] md:!py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] text-white hover:!shadow-lg duration-300 ease-in-out cursor-pointer"
-              >
-                Next
-              </button>
             ) : (
+              // ✅ Step 6 (last step) → Submit Button
               <AlertDialogAction
                 onClick={handleSubmit}
                 className="lg:px-4 px-3 lg:!py-[10px] md:py-2 py-1 lg:text-sm text-xs font-semibold leading-[142%] tracking-[-0.28px] rounded-md !bg-[#B751FB] text-white hover:shadow-lg duration-300 ease-in-out cursor-pointer"

@@ -74,7 +74,7 @@ function Prospective() {
         <div className="relative lg:w-[290px] md:w-[230px] w-[160px]">
           <Search
             className="absolute right-3 top-[18px] -translate-y-1/2 text-[#D9DDE3]"
-            size={18}
+            size={15}
           />
           <Input
             type="text"
@@ -87,7 +87,7 @@ function Prospective() {
         <div className="relative inline-block">
           <div
             onClick={() => setShowCalendar((prev) => !prev)}
-            className="flex items-center gap-2 border border-[#A8A9AE] rounded-md lg:px-4 md:px-3 px-2 lg:py-[10px] py-[6px] cursor-pointer"
+            className="flex items-center gap-2 border border-[#A8A9AE] rounded-md lg:px-4 md:px-3 px-2 py-2 cursor-pointer"
           >
             <FilterIcon className="h-4 w-4 text-[#A8A9AE]" />
             <span className="text-sm text-[#A8A9AE]">
@@ -160,7 +160,7 @@ function Prospective() {
                       : "bg-white hover:bg-[#EBD9FF] hover:border-l-[#b751fb]"
                   }`}
                 >
-                  <TableCell className="inline-flex items-center gap-2 py-2 px-3 cursor-pointer w-[190px]">
+                  <TableCell className="inline-flex items-center gap-2 mb-2 cursor-pointer w-[190px]">
                     <Prospect />
                     <Image
                       src={row.img}

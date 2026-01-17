@@ -101,7 +101,7 @@ function ScheduleFollowUp() {
               </span>
             </SheetTitle>
           </SheetHeader>
-          <div className="md:w-[400px] w-[320px] overflow-auto pb-10">
+          <div className="overflow-auto pb-10">
             <div>
               <div className="flex gap-2 lg:px-6 md:px-4 px-3 pt-5">
                 <Image

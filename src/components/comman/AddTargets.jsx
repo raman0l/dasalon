@@ -41,7 +41,7 @@ export default function AddTargetsDialog() {
 
       <AlertDialogContent className="lg:w-[400px] w-[350px] max-[400px]:w-full rounded-none">
         <AlertDialogHeader>
-          <div className="flex gap-2 justify-between max-w-[350px] items-center p-4 pb-0">
+          <div className="flex gap-2 lg:justify-between max-w-[350px] items-center p-4 pb-0">
             <Heading
               className={"!text-base text-[#030712] font-semibold"}
               title={"Add Targets"}

@@ -33,7 +33,7 @@ export default function UserSettings({ label, placeholder }) {
   };
 
   return (
-    <div className="h-screen text-white px-6 py-10 max-w-[543px] m-auto">
+    <div className=" text-white py-10 max-w-[543px] m-auto">
       {/* Breadcrumb */}
       <div className="p-6 flex gap-1">
         <Heading
@@ -71,7 +71,6 @@ export default function UserSettings({ label, placeholder }) {
             onChange={(e) => console.log("Selected:", e.target.files[0])}
           />
         </div>
-
         <div>
           <Pragraph
             className={"lg:!text-base !text-sm font-semibold !text-[#030712]"}

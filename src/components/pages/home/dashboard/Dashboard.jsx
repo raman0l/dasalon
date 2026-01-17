@@ -147,7 +147,7 @@ function Dashboard() {
         </div>
         <div>
           <div className="flex gap-2 mt-6 justify-between max-[920px]:flex-wrap">
-            <div className="bg-white rounded-[8px] lg:p-6 md:p-4 p-3  border-2 border-[#E4E7EB] w-full">
+            <div className="bg-white rounded-[8px] lg:p-6 md:p-4 p-3  border-2 border-[#E4E7EB] lg:w-[50%] w-full">
               <Heading
                 className={
                   "lg:!text-xl md:!text-lg !text-base  font-semibold  leading-[120%] tracking-[-0.4px] !text-[#030712] lg:pb-6 md:pb-5 pb-4"
@@ -206,8 +206,8 @@ function Dashboard() {
                 ))}
               </div>
             </div>
-            <div className="bg-white rounded-xl lg:p-6 md:p-4 p-3 border-2 border-[#E4E7EB]  w-full">
-              <div className="flex justify-between  mb-6">
+            <div className="bg-white rounded-xl lg:p-6 md:p-4 p-3 border-2 border-[#E4E7EB] lg:w-[50%] w-full">
+              <div className="flex justify-between mb-6">
                 <div className="flex  flex-col gap-1">
                   <Heading
                     className={
@@ -289,9 +289,9 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="flex w-full gap-2 max-[900px]:flex-wrap justify-between mt-6">
-          <div className="flex flex-col gap-6 w-full">
-            <div className="border-[#E4E7EB] border-2 py-6 rounded-lg">
+        <div className="flex gap-2 max-[900px]:flex-wrap justify-between mt-6 w-full">
+          <div className="flex flex-col gap-6 lg:w-[50%] w-full">
+            <div className="border-[#E4E7EB] border-2 py-6 rounded-lg w-full">
               <div className="flex gap-2 justify-between mb-4 lg:px-6 md:px-4 p-3 max-[440px]:flex-col">
                 <Heading
                   className="lg:!text-xl md:!text-lg !text-base font-semibold leading-[120%] tracking-[-0.4px] !text-[#030712]"
@@ -364,7 +364,6 @@ function Dashboard() {
                 </ResponsiveContainer>
               </div>
             </div>
-
             <div className="w-full bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
@@ -374,7 +373,7 @@ function Dashboard() {
                   }
                   title={"Critical tasks"}
                 />
-                <Button className="bg-[#B751FB] text-[10px] font-semibold leading-[200%] tracking-[-0.2px] hover:bg-[#a741ebdb] text-white rounded-lg cursor-pointer duration-300 ease-in-out lg:px-2 px-1">
+                <Button className="bg-[#B751FB] text-[10px] font-semibold leading-[200%] tracking-[-0.2px] hover:bg-[#a741ebdb] text-white rounded-lg cursor-pointer duration-300 ease-in-out lg:px-4 px-3">
                   View Details
                 </Button>
               </div>
@@ -408,7 +407,7 @@ function Dashboard() {
               </div>
             </div>
           </div>
-          <div className=" bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3 w-full">
+          <div className=" bg-white rounded-xl border border-gray-200 lg:p-6 md:p-4 p-3 lg:w-[50%] w-full">
             <div className="flex items-center justify-between mb-6">
               <Heading
                 className={

@@ -53,15 +53,15 @@ function BAProfiles() {
         </div>
         <div>
           <div>
-            <div className="flex max-[470px]:flex-col mx-auto gap-2 mb-4 border-[#808188] border-b-1 justify-center">
+            <div className="flex max-[470px]:flex-col mx-auto gap-2 mb-4 border-[#808188] border-b-1">
               {["Personal Details", "Contract Details", "Incentive"].map(
                 (tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`flex gap-1 items-center cursor-pointer ${
+                    className={`flex gap-1 items-center cursor-pointer lg:px-6 md:px-4 px-2 ${
                       activeTab === tab
-                        ? "border-b-3 border-[#B751FB]  pb-3 text-sm font-semibold px-2 text-[#B751FB] max-[470px]:w-40"
+                        ? "border-b-3 border-[#B751FB]  pb-3 text-sm font-semibold text-[#B751FB] max-[470px]:w-40"
                         : "text-[#808188] text-sm font-semibold px-2 pb-3 border-b-3 border-transparent max-[470px]:w-40"
                     }`}
                   >
